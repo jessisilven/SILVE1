@@ -41,11 +41,12 @@
             letter-spacing: 3px;
         }
         
+        /* Den kompakta racket-containern */
         .racket-container {
             display: flex;
-            gap: 70px;
+            gap: 50px;
             justify-content: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
             filter: blur(10px) brightness(1.1); 
             opacity: 0.7;
             pointer-events: none;
@@ -57,34 +58,34 @@
             align-items: center;
         }
         .racket-head {
-            width: 65px;
-            height: 85px;
+            width: 60px;
+            height: 80px;
             border: 2px solid #ffffff;
-            border-radius: 50% 50% 48% 48%;
+            border-radius: 50% 50% 45% 45%;
             position: relative;
             overflow: hidden;
             background: rgba(255,255,255,0.05);
         }
-        /* Tydliga strängar som skär igenom blurret */
+        /* Tydliga strängar */
         .racket-head::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.4) 8px),
-                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.4) 10px);
+                repeating-linear-gradient(to right, transparent, transparent 7px, rgba(255,255,255,0.3) 8px),
+                repeating-linear-gradient(to bottom, transparent, transparent 9px, rgba(255,255,255,0.3) 10px);
         }
+        /* Det korta skaftet från första versionen */
         .racket-shaft {
-            width: 2px;
-            height: 90px;
+            width: 3px;
+            height: 50px; 
             background-color: #ffffff;
         }
-        
-        /* Tillbaka till de snygga långa/smala greppen */
+        /* Det korta, kraftiga greppet från första versionen */
         .racket-grip {
-            width: 12px;
-            height: 75px;
-            border-radius: 1px;
+            width: 14px;
+            height: 40px; 
+            border-radius: 2px;
         }
         
         .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 25px rgba(93, 224, 230, 0.3); }
