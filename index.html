@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,48 +14,87 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
-            overflow: hidden;
+        }
+        .content {
+            text-align: center;
+            z-index: 10;
+            padding: 60px 20px;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
         }
         .logo {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            letter-spacing: 8px;
+            letter-spacing: 10px;
             color: #fff;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
         .tagline {
-            font-size: 1.2rem;
-            color: #888;
-            margin-bottom: 50px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 60px;
             font-weight: 300;
+            letter-spacing: 3px;
         }
-        .preview-box {
+        
+        /* Racket Design */
+        .racket-container {
             display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            filter: blur(15px);
-            opacity: 0.6;
+            gap: 80px; /* Mer mellanrum mellan racken */
+            justify-content: center;
+            margin-bottom: 60px;
         }
-        .grip-silhouette {
-            width: 40px;
-            height: 200px;
-            border-radius: 20px;
+        .racket {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .glacier { background: linear-gradient(to top, #004AAD, #5DE0E6, #ffffff); }
-        .berry { background: linear-gradient(to top, #AD138B, #EB8FD6, #ffffff); }
-        .content {
-            text-align: center;
-            z-index: 10;
-            padding: 20px;
+        .racket-head {
+            width: 70px;
+            height: 95px;
+            border: 2px solid #ffffff;
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
         }
+        .racket-head::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                linear-gradient(to right, transparent 48%, rgba(255,255,255,0.1) 50%, transparent 52%) 0 0 / 12px 100%,
+                linear-gradient(to bottom, transparent 48%, rgba(255,255,255,0.1) 50%, transparent 52%) 0 0 / 100% 14px;
+        }
+        .racket-shaft {
+            width: 3px;
+            height: 70px;
+            background-color: #ffffff;
+        }
+        .racket-grip {
+            width: 18px;
+            height: 60px;
+            border-radius: 2px;
+        }
+        .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 20px rgba(93, 224, 230, 0.2); }
+        .berry-grip { background: linear-gradient(to bottom, #EB8FD6, #AD138B); box-shadow: 0 0 20px rgba(235, 143, 214, 0.2); }
+
+        .model-name {
+            margin-top: 15px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
         h2 {
             font-size: 1.5rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-weight: 400;
-            max-width: 400px;
             line-height: 1.4;
         }
         .waitlist-form {
@@ -64,34 +102,36 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             margin: 0 auto;
         }
         input[type="email"] {
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #333;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #222;
             background: #111;
             color: white;
             text-align: center;
-            width: 100%;
+            font-size: 16px;
         }
         button {
-            padding: 15px;
-            border-radius: 5px;
+            padding: 18px;
+            border-radius: 10px;
             border: none;
             background: #fff;
             color: #000;
             font-weight: bold;
             cursor: pointer;
-            width: 100%;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         .location-tag {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #444;
+            margin-top: 60px;
+            padding-bottom: 40px;
+            font-size: 0.7rem;
+            color: #222;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
     </style>
 </head>
@@ -99,17 +139,30 @@
     <div class="content">
         <div class="logo">SILVE</div>
         <div class="tagline">PREMIUM BADMINTON GRIPS</div>
-        <div class="preview-box">
-            <div class="grip-silhouette glacier"></div>
-            <div class="grip-silhouette berry"></div>
+        
+        <div class="racket-container">
+            <div class="racket">
+                <div class="racket-head"></div>
+                <div class="racket-shaft"></div>
+                <div class="racket-grip glacier-grip"></div>
+                <div class="model-name">Glacier</div>
+            </div>
+            <div class="racket">
+                <div class="racket-head"></div>
+                <div class="racket-shaft"></div>
+                <div class="racket-grip berry-grip"></div>
+                <div class="model-name">Berry</div>
+            </div>
         </div>
-        <h2>Världens snyggaste grepp landar snart i Stockholm. <br><strong>Vill du testa?</strong></h2>
+
+        <h2>Stockholm’s finest grips are landing soon. <br><strong>Want to be the first to test?</strong></h2>
+        
         <form class="waitlist-form">
-            <input type="email" placeholder="Ange din e-post..." required>
+            <input type="email" placeholder="Enter your email..." required>
             <button type="submit">JOIN THE WAITLIST</button>
         </form>
+        
         <div class="location-tag">Stockholm Edition | silvesports.se</div>
     </div>
 </body>
 </html>
-
