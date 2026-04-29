@@ -20,13 +20,13 @@
         .content {
             text-align: center;
             z-index: 10;
-            padding: 80px 20px;
+            padding: 50px 20px; /* Något mindre padding uppe */
             width: 100%;
             max-width: 500px;
             box-sizing: border-box;
         }
         .logo {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
             letter-spacing: 10px;
             color: #fff;
@@ -34,19 +34,18 @@
             text-transform: uppercase;
         }
         .tagline {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
-            margin-bottom: 70px;
+            margin-bottom: 50px;
             font-weight: 300;
             letter-spacing: 3px;
         }
         
-        /* Den kompakta racket-containern */
         .racket-container {
             display: flex;
-            gap: 50px;
+            gap: 60px;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             filter: blur(10px) brightness(1.1); 
             opacity: 0.7;
             pointer-events: none;
@@ -61,52 +60,53 @@
             width: 60px;
             height: 80px;
             border: 2px solid #ffffff;
-            border-radius: 50% 50% 45% 45%;
+            border-radius: 50% 50% 48% 48%;
             position: relative;
             overflow: hidden;
             background: rgba(255,255,255,0.05);
         }
-        /* Tydliga strängar */
         .racket-head::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                repeating-linear-gradient(to right, transparent, transparent 7px, rgba(255,255,255,0.3) 8px),
-                repeating-linear-gradient(to bottom, transparent, transparent 9px, rgba(255,255,255,0.3) 10px);
-        }
-        /* Det korta skaftet från första versionen */
-        .racket-shaft {
-            width: 3px;
-            height: 50px; 
-            background-color: #ffffff;
-        }
-        /* Det korta, kraftiga greppet från första versionen */
-        .racket-grip {
-            width: 14px;
-            height: 40px; 
-            border-radius: 2px;
+                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.4) 8px),
+                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.4) 10px);
         }
         
-        .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 25px rgba(93, 224, 230, 0.3); }
-        .berry-grip { background: linear-gradient(to bottom, #EB8FD6, #AD138B); box-shadow: 0 0 25px rgba(235, 143, 214, 0.3); }
+        /* Balanserat skaft: Inte för långt, inte för kort */
+        .racket-shaft {
+            width: 2px;
+            height: 60px; 
+            background-color: #ffffff;
+        }
+        
+        /* Balanserat grepp: Visar färgen tydligt men kompakt */
+        .racket-grip {
+            width: 12px;
+            height: 65px; 
+            border-radius: 1px;
+        }
+        
+        .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 20px rgba(93, 224, 230, 0.3); }
+        .berry-grip { background: linear-gradient(to bottom, #EB8FD6, #AD138B); box-shadow: 0 0 20px rgba(235, 143, 214, 0.3); }
 
         h2 {
-            font-size: 1.4rem;
-            margin-bottom: 35px;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
             font-weight: 400;
             line-height: 1.4;
         }
         .waitlist-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             margin: 0 auto;
         }
         input[type="email"] {
-            padding: 18px;
+            padding: 16px;
             border-radius: 10px;
             border: 1px solid #222;
             background: #111;
@@ -117,7 +117,7 @@
             -webkit-appearance: none;
         }
         button {
-            padding: 18px;
+            padding: 16px;
             border-radius: 10px;
             border: none;
             background: #fff;
@@ -128,9 +128,9 @@
             letter-spacing: 1px;
         }
         .location-tag {
-            margin-top: 80px;
+            margin-top: 50px;
             padding-bottom: 40px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #222;
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -157,7 +157,7 @@
 
         <h2>The finest grips are landing soon. <br><strong>Want to be the first to test?</strong></h2>
         
-        <form class="waitlist-form" action="DIN_FORMSPREE_URL_HÄR" method="POST">
+        <form class="waitlist-form" action="HÄR_KLISTRAR_DU_IN_DIN_FORMSPREE_URL" method="POST">
             <input type="email" name="email" placeholder="Enter your email..." required>
             <button type="submit">JOIN THE WAITLIST</button>
         </form>
