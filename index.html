@@ -41,13 +41,24 @@
             letter-spacing: 3px;
         }
         
-        /* Racket Design */
+        /* Racket Design med Blur */
         .racket-container {
             display: flex;
-            gap: 80px; /* Mer mellanrum mellan racken */
+            gap: 80px;
             justify-content: center;
             margin-bottom: 60px;
+            /* Detta ger en mystisk känsla */
+            filter: blur(4px); 
+            opacity: 0.8;
+            transition: filter 0.5s ease;
         }
+        
+        /* Valfritt: Om man vill att det ska bli skarpt när man för musen över (på dator) */
+        .racket-container:hover {
+            filter: blur(0px);
+            opacity: 1;
+        }
+
         .racket {
             display: flex;
             flex-direction: column;
@@ -151,7 +162,7 @@
                 <div class="racket-head"></div>
                 <div class="racket-shaft"></div>
                 <div class="racket-grip berry-grip"></div>
-                <div class="model-name">Berry</div>
+                <div class="model-name">Berry Frost</div>
             </div>
         </div>
 
