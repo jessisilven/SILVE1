@@ -6,174 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SILVE SPORTS | Coming Soon</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-        }
-        .content {
-            text-align: center;
-            z-index: 10;
-            padding: 50px 20px;
-            width: 100%;
-            max-width: 500px;
-            box-sizing: border-box;
-        }
-        .logo {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: 10px;
-            color: #fff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .tagline {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 50px;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-        
-        .racket-container {
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-            margin-bottom: 50px;
-            filter: blur(10px) brightness(1.1); 
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .racket {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .racket-head {
-            width: 60px;
-            height: 80px;
-            border: 2px solid #ffffff;
-            border-radius: 50% 50% 48% 48%;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255,255,255,0.05);
-        }
-        .racket-head::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.4) 8px),
-                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.4) 10px);
-        }
-        .racket-shaft {
-            width: 2px;
-            height: 60px; 
-            background-color: #ffffff;
-        }
-        .racket-grip {
-            width: 12px;
-            height: 65px; 
-            border-radius: 1px;
-        }
+        body { margin: 0; padding: 0; background-color: #050505; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; }
+        .content { text-align: center; z-index: 10; padding: 50px 20px; width: 100%; max-width: 500px; box-sizing: border-box; }
+        .logo { font-size: 2.6rem; font-weight: 800; letter-spacing: 10px; color: #fff; margin-bottom: 10px; text-transform: uppercase; }
+        .tagline { font-size: 0.85rem; color: #888; margin-bottom: 50px; font-weight: 300; letter-spacing: 3px; }
+        .racket-container { display: flex; gap: 60px; justify-content: center; margin-bottom: 50px; filter: blur(10px) brightness(1.1); opacity: 0.7; pointer-events: none; }
+        .racket { display: flex; flex-direction: column; align-items: center; }
+        .racket-head { width: 60px; height: 80px; border: 2px solid #ffffff; border-radius: 50% 50% 48% 48%; position: relative; overflow: hidden; background: rgba(255,255,255,0.05); }
+        .racket-head::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.4) 8px), repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.4) 10px); }
+        .racket-shaft { width: 2px; height: 60px; background-color: #ffffff; }
+        .racket-grip { width: 12px; height: 65px; border-radius: 1px; }
         .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 20px rgba(93, 224, 230, 0.3); }
         .berry-grip { background: linear-gradient(to bottom, #EB8FD6, #AD138B); box-shadow: 0 0 20px rgba(235, 143, 214, 0.3); }
-
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-        
-        .info-text {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .waitlist-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        input[type="email"] {
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            background: #111;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-        button {
-            padding: 18px;
-            border-radius: 10px;
-            border: none;
-            background: #fff;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: opacity 0.2s;
-        }
-        button:hover {
-            opacity: 0.9;
-        }
-        
-        .location-tag {
-            margin-top: 60px;
-            padding-bottom: 40px;
-            font-size: 0.7rem;
-            color: #ccc;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
+        h2 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 400; line-height: 1.4; }
+        .info-text { color: #aaa; font-size: 0.9rem; margin-bottom: 30px; font-weight: 300; }
+        .waitlist-form { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 300px; margin: 0 auto; }
+        input[type="email"] { padding: 18px; border-radius: 10px; border: 1px solid #333; background: #111; color: white; text-align: center; font-size: 16px; outline: none; }
+        button { padding: 18px; border-radius: 10px; border: none; background: #fff; color: #000; font-weight: bold; cursor: pointer; font-size: 14px; letter-spacing: 1px; }
+        .location-tag { margin-top: 60px; padding-bottom: 40px; font-size: 0.7rem; color: #ccc; text-transform: uppercase; letter-spacing: 4px; }
     </style>
 </head>
 <body>
     <div class="content">
         <div class="logo">SILVE</div>
         <div class="tagline">PREMIUM BADMINTON GRIPS</div>
-        
         <div class="racket-container">
-            <div class="racket">
-                <div class="racket-head"></div>
-                <div class="racket-shaft"></div>
-                <div class="racket-grip glacier-grip"></div>
-            </div>
-            <div class="racket">
-                <div class="racket-head"></div>
-                <div class="racket-shaft"></div>
-                <div class="racket-grip berry-grip"></div>
-            </div>
+            <div class="racket"><div class="racket-head"></div><div class="racket-shaft"></div><div class="racket-grip glacier-grip"></div></div>
+            <div class="racket"><div class="racket-head"></div><div class="racket-shaft"></div><div class="racket-grip berry-grip"></div></div>
         </div>
-
         <h2>The finest grips are landing soon.</h2>
         <div class="info-text">Join for early access and founder's pricing.</div>
-        
-        <!-- KORREKT FORMULÄR HÄR UNDER -->
-        <form class="waitlist-form" action="https://formspree.io/f/xqenzone" method="POST">
+
+        <!-- DETTA ÄR DET VIKTIGA FORMULÄRET -->
+        <form class="waitlist-form" action="https://formspree.io" method="POST">
             <input type="email" name="email" placeholder="Enter your email..." required>
-            
-            <!-- Denna rad ser till att kunden skickas till din tack-sida -->
+            <!-- Vi använder en relativ länk för att säkerställa att den hittas -->
             <input type="hidden" name="_next" value="https://silvesports.se">
-            
             <button type="submit">JOIN THE WAITLIST</button>
         </form>
         
