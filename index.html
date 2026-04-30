@@ -164,7 +164,25 @@
         <h2>The finest grips are landing soon.</h2>
         <div class="info-text">Join for early access and founder's pricing.</div>
         
-        <form class="waitlist-form" action="DIN_FORMSPREE_URL_HÄR" method="POST">
+        <form class="waitlist-form" action="<!-- START: Väntelista för Silve Sports -->
+<div class="form-wrapper" style="margin-top: 20px;">
+  <form action="https://formspree.io" method="POST">
+    <label style="display: block; margin-bottom: 10px; font-weight: bold;">
+      Join the waitlist for Early Access:
+    </label>
+    <input type="email" name="email" placeholder="Din e-postadress" required 
+           style="padding: 10px; width: 250px; border-radius: 4px; border: 1px solid #ccc;">
+    
+    <!-- Denna rad ser till att tack-sidan visas efteråt -->
+    <input type="hidden" name="_next" value="https://silvesports.se">
+    
+    <button type="submit" style="padding: 10px 20px; background: #000; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+      JOIN THE WAITLIST
+    </button>
+  </form>
+</div>
+<!-- SLUT: Väntelista -->
+" method="POST">
             <input type="email" name="email" placeholder="Enter your email..." required>
             <button type="submit">JOIN THE WAITLIST</button>
         </form>
