@@ -31,8 +31,18 @@
             font-weight: 800;
             letter-spacing: 10px;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        .tm {
+            font-size: 0.8rem;
+            vertical-align: super;
+            letter-spacing: normal;
+            margin-left: -5px;
+            font-weight: 400;
+            color: #888;
         }
         .tagline {
             font-size: 0.85rem;
@@ -47,9 +57,9 @@
             gap: 60px;
             justify-content: center;
             margin-bottom: 50px;
-            -webkit-filter: blur(10px) brightness(1.1);
-            filter: blur(10px) brightness(1.1); 
-            opacity: 0.7;
+            -webkit-filter: brightness(1.2);
+            filter: brightness(1.2); 
+            opacity: 1;
             pointer-events: none;
         }
 
@@ -61,22 +71,22 @@
         .racket-head {
             width: 60px;
             height: 80px;
-            border: 2px solid #ffffff;
+            border: 3px solid #ffffff;
             border-radius: 50% 50% 48% 48%;
             position: relative;
             overflow: hidden;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.08);
         }
         .racket-head::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.4) 8px),
-                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.4) 10px);
+                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.3) 8px),
+                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.3) 10px);
         }
         .racket-shaft {
-            width: 2px;
+            width: 3px;
             height: 60px; 
             background-color: #ffffff;
         }
@@ -85,8 +95,9 @@
             height: 65px; 
             border-radius: 1px;
         }
-        .glacier-grip { background: linear-gradient(to bottom, #5DE0E6, #004AAD); box-shadow: 0 0 20px rgba(93, 224, 230, 0.3); }
-        .berry-grip { background: linear-gradient(to bottom, #EB8FD6, #AD138B); box-shadow: 0 0 20px rgba(235, 143, 214, 0.3); }
+        
+        .glacier-grip { background: linear-gradient(to bottom, #7CFFFF, #0050D1); box-shadow: 0 0 25px rgba(124, 255, 255, 0.4); }
+        .berry-grip { background: linear-gradient(to bottom, #FFB6F1, #D319AD); box-shadow: 0 0 25px rgba(255, 182, 241, 0.4); }
 
         h2 {
             font-size: 1.3rem;
@@ -137,11 +148,10 @@
             opacity: 0.9;
         }
         
-        /* Uppdaterad stil för tack-meddelandet */
         #status {
             padding: 20px;
             border-radius: 10px;
-            display: none; /* Dold från början */
+            display: none; 
         }
         .success-box {
             border: 1px solid #5DE0E6;
@@ -159,19 +169,33 @@
             line-height: 1.5;
         }
 
-        .location-tag {
+        .instagram-link {
+            margin-top: 40px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .instagram-link:hover {
+            opacity: 1;
+        }
+
+        .footer {
             margin-top: 60px;
             padding-bottom: 40px;
             font-size: 0.7rem;
-            color: #ccc;
+            color: #555;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
+            line-height: 2;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <div class="logo">SILVE</div>
+        <div class="logo">SILVE<span class="tm">™</span></div>
         <div class="tagline">PREMIUM BADMINTON GRIPS</div>
         
         <div class="racket-container">
@@ -201,8 +225,15 @@
             <div class="success-title">Welcome to the club.</div>
             <div class="success-text">You're now on the waitlist. We will notify you as soon as the collection drops.</div>
         </div>
+
+        <a href="https://instagram.com/silvesports" target="_blank" class="instagram-link">
+            Follow us @silvesports
+        </a>
         
-        <div class="location-tag">Stockholm Edition | silvesports.se</div>
+        <div class="footer">
+            Stockholm Edition | silvesports.se<br>
+            © 2026 SILVE SPORTS™
+        </div>
     </div>
 
     <script>
@@ -226,7 +257,6 @@
             }
           }).then(response => {
             if (response.ok) {
-              // Dölj formulär och visa tack-boxen
               formContainer.style.display = "none";
               statusBox.style.display = "block";
               statusBox.className = "success-box";
