@@ -4,197 +4,138 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SILVE SPORTS | Coming Soon</title>
+    <title>SILVE SPORTS | Premium Badminton Grips</title>
     <style>
+        :root {
+            --glacier: #5DE0E6;
+            --berry: #EB8FD6;
+            --bg-dark: #050505;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #050505;
+            background-color: var(--bg-dark);
             color: #ffffff;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-        }
-        .content {
             text-align: center;
-            z-index: 10;
-            padding: 50px 20px;
-            width: 100%;
-            max-width: 500px;
-            box-sizing: border-box;
+            padding: 0 20px;
         }
+
         .logo {
             font-size: 2.6rem;
             font-weight: 800;
             letter-spacing: 10px;
-            color: #fff;
-            margin-bottom: 5px;
             text-transform: uppercase;
-            position: relative;
-            display: inline-block;
+            margin-bottom: 5px;
         }
-        .tm {
-            font-size: 0.8rem;
-            vertical-align: super;
-            letter-spacing: normal;
-            margin-left: -5px;
-            font-weight: 400;
-            color: #888;
-        }
+
+        .tm { font-size: 0.8rem; vertical-align: super; color: #888; font-weight: 400; }
+
         .tagline {
             font-size: 0.85rem;
             color: #888;
-            margin-bottom: 50px;
-            font-weight: 300;
             letter-spacing: 3px;
+            margin-bottom: 40px;
         }
-        
+
+        /* Racket Visuals */
         .racket-container {
             display: flex;
-            gap: 60px;
+            gap: 50px;
             justify-content: center;
-            margin-bottom: 50px;
-            -webkit-filter: brightness(1.2);
-            filter: brightness(1.2); 
-            opacity: 1;
-            pointer-events: none;
+            margin-bottom: 40px;
+            filter: brightness(1.2);
         }
 
-        .racket {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .racket { display: flex; flex-direction: column; align-items: center; }
         .racket-head {
-            width: 60px;
-            height: 80px;
+            width: 50px; height: 70px;
             border: 3px solid #ffffff;
             border-radius: 50% 50% 48% 48%;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
         }
-        .racket-head::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                repeating-linear-gradient(to right, transparent, transparent 6px, rgba(255,255,255,0.3) 8px),
-                repeating-linear-gradient(to bottom, transparent, transparent 8px, rgba(255,255,255,0.3) 10px);
-        }
-        .racket-shaft {
-            width: 3px;
-            height: 60px; 
-            background-color: #ffffff;
-        }
-        .racket-grip {
-            width: 12px;
-            height: 65px; 
-            border-radius: 1px;
-        }
-        
-        .glacier-grip { background: linear-gradient(to bottom, #7CFFFF, #0050D1); box-shadow: 0 0 25px rgba(124, 255, 255, 0.4); }
-        .berry-grip { background: linear-gradient(to bottom, #FFB6F1, #D319AD); box-shadow: 0 0 25px rgba(255, 182, 241, 0.4); }
+        .racket-shaft { width: 3px; height: 50px; background: #fff; }
+        .racket-grip { width: 12px; height: 55px; border-radius: 1px; }
+        .glacier-grip { background: linear-gradient(to bottom, #7CFFFF, #0050D1); box-shadow: 0 0 20px rgba(124, 255, 255, 0.3); }
+        .berry-grip { background: linear-gradient(to bottom, #FFB6F1, #D319AD); box-shadow: 0 0 20px rgba(255, 182, 241, 0.3); }
 
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-weight: 400;
-            line-height: 1.4;
-        }
+        /* Form Styling */
+        .waitlist-box { width: 100%; max-width: 350px; margin: 0 auto; }
+        .waitlist-form { display: flex; flex-direction: column; gap: 10px; }
         
-        .info-text {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .waitlist-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-        }
         input[type="email"] {
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            background: #111;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-        button {
-            padding: 18px;
-            border-radius: 10px;
-            border: none;
-            background: #fff;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: opacity 0.2s;
-        }
-        button:hover {
-            opacity: 0.9;
-        }
-        
-        #status {
-            padding: 20px;
-            border-radius: 10px;
-            display: none; 
-        }
-        .success-box {
-            border: 1px solid #5DE0E6;
-            background: rgba(93, 224, 230, 0.05);
-        }
-        .success-title {
-            color: #5DE0E6;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .success-text {
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            padding: 16px; border-radius: 8px; border: 1px solid #333;
+            background: #111; color: white; text-align: center;
         }
 
+        button {
+            padding: 16px; border-radius: 8px; border: none;
+            background: #fff; color: #000; font-weight: bold;
+            cursor: pointer; letter-spacing: 1px; transition: 0.3s;
+        }
+        button:hover { opacity: 0.8; }
+
+        /* Info Sections (Från bilden) */
+        .section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-tag { color: var(--glacier); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .section h2 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 700; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .grid-item h3 { font-size: 1rem; margin: 15px 0 10px; color: #fff; }
+        .grid-item p { font-size: 0.85rem; color: #aaa; font-weight: 300; }
+
+        .problem-section { background: #0a0a0a; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        
         .instagram-link {
-            margin-top: 40px;
-            display: block;
+            margin: 40px 0;
+            display: inline-block;
             color: #fff;
             text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-        .instagram-link:hover {
-            opacity: 1;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.5;
         }
 
         .footer {
-            margin-top: 60px;
-            padding-bottom: 40px;
+            padding: 40px 20px;
+            border-top: 1px solid #111;
             font-size: 0.7rem;
-            color: #555;
-            text-transform: uppercase;
+            color: #444;
             letter-spacing: 2px;
-            line-height: 2;
+            text-align: center;
         }
+
+        #status { display: none; padding: 20px; border-radius: 8px; border: 1px solid var(--glacier); background: rgba(93, 224, 230, 0.05); }
+
     </style>
 </head>
 <body>
-    <div class="content">
+
+    <section class="hero">
         <div class="logo">SILVE<span class="tm">™</span></div>
         <div class="tagline">PREMIUM BADMINTON GRIPS</div>
         
@@ -211,29 +152,65 @@
             </div>
         </div>
 
-        <div id="form-container">
+        <div id="form-container" class="waitlist-box">
             <h2>The finest grips are landing soon.</h2>
-            <div class="info-text">Join for early access and founder's pricing.</div>
-            
+            <p class="tagline" style="margin-bottom: 25px;">Join for early access and founder's pricing.</p>
             <form id="my-form" class="waitlist-form">
-                <input type="email" name="email" id="email-input" placeholder="Enter your email..." required>
-                <button id="submit-button" type="submit">JOIN THE WAITLIST</button>
+                <input type="email" name="email" placeholder="Enter your email..." required>
+                <button id="submit-button" type="submit">FÅ VETA VID LANSERING</button>
             </form>
         </div>
-        
-        <div id="status">
-            <div class="success-title">Welcome to the club.</div>
-            <div class="success-text">You're now on the waitlist. We will notify you as soon as the collection drops.</div>
+        <div id="status" class="waitlist-box">
+            <div style="color: var(--glacier); font-weight: bold;">Welcome to the club.</div>
+            <div style="font-size: 0.9rem; color: #ccc;">You're now on the waitlist.</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-tag">Under utveckling</div>
+        <h2>Vi testar. Vi förbättrar. Vi levererar.</h2>
+        <p style="color: #888; max-width: 600px; margin: 0 auto;">Vi utvecklar just nu grepplindor för maximal kontroll, komfort och känsla – designade för att prestera när det verkligen gäller.</p>
+
+        <div class="grid">
+            <div class="grid-item">
+                <div style="font-size: 2rem;">🎾</div>
+                <h3>BÄTTRE GREPP</h3>
+                <p>Maximalt grepp även vid svett och intensiva matcher.</p>
+            </div>
+            <div class="grid-item">
+                <div style="font-size: 2rem;">🛡️</div>
+                <h3>LÄNGRE HÅLLBARHET</h3>
+                <p>Material som håller längre utan att tappa den där "nya" känslan.</p>
+            </div>
+            <div class="grid-item">
+                <div style="font-size: 2rem;">✨</div>
+                <h3>KOMFORT & KÄNSLA</h3>
+                <p>Utformad för att ge rätt feedback i varje slag.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="problem-section">
+            <div class="section-tag">Känner du igen detta?</div>
+            <div class="grid" style="margin-top: 30px;">
+                <div style="text-align: left;">
+                    <span style="color: var(--berry);">✕</span> <strong>Halt grepp:</strong> Svettiga händer gör att racket glider.<br>
+                    <span style="color: var(--berry);">✕</span> <strong>Sliten linda:</strong> Vanliga lindor slits snabbt och tappar stuns.<br>
+                    <span style="color: var(--berry);">✕</span> <strong>Mindre kontroll:</strong> Tappar du greppet tappar du spelet.
+                </div>
+            </div>
+            <h3 style="margin-top: 40px; color: var(--glacier);">Vi löser detta – hela matchen.</h3>
         </div>
 
         <a href="https://instagram.com/silvesports" target="_blank" class="instagram-link">
-            Follow us @silvesports
+            INSTAGRAM @SILVESPORTS
         </a>
-        
-        <div class="footer">
-            Stockholm Edition | silvesports.se<br>
-            © 2026 SILVE SPORTS™
-        </div>
+    </section>
+
+    <div class="footer">
+        STOCKHOLM EDITION | SILVESPORTS.SE<br>
+        © 2026 SILVE SPORTS™
     </div>
 
     <script>
@@ -245,27 +222,23 @@
         async function handleSubmit(event) {
           event.preventDefault();
           var data = new FormData(event.target);
-          
-          button.innerHTML = "SENDING...";
+          button.innerHTML = "SÄNDER...";
           button.disabled = true;
 
           fetch("https://formspree.io/f/xqenzone", {
             method: "POST",
             body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
           }).then(response => {
             if (response.ok) {
               formContainer.style.display = "none";
               statusBox.style.display = "block";
-              statusBox.className = "success-box";
             } else {
-              button.innerHTML = "ERROR - TRY AGAIN";
+              button.innerHTML = "FÖRSÖK IGEN";
               button.disabled = false;
             }
           }).catch(error => {
-            button.innerHTML = "CONNECTION ERROR";
+            button.innerHTML = "FEL";
             button.disabled = false;
           });
         }
