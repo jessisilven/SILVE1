@@ -4,44 +4,32 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SILVE SPORTS™ | Premium Badminton Grips</title>
+    <title>SILVE SPORTS™</title>
     <style>
         :root {
-            --glacier: #5DE0E6;
-            --berry: #EB8FD6;
+            --glacier-bottom: #004AAD;
+            --glacier-mid: #5DE0E6;
+            --berry-bottom: #AD138B;
+            --berry-mid: #EB8FD6;
+            --silver-metallic: #C0C0C2; 
             --bg-dark: #050505;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--bg-dark);
             color: #ffffff;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Språkväljare */
         .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            position: fixed; top: 25px; right: 25px; z-index: 1000;
+            cursor: pointer; transition: transform 0.3s;
         }
-        .lang-btn {
-            background: none;
-            border: none;
-            color: #555;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-        .lang-btn.active { color: #fff; border-bottom: 1px solid var(--glacier); }
+        .lang-switch:hover { transform: scale(1.1); }
+        .flag-icon { width: 30px; border-radius: 3px; box-shadow: 0 0 15px rgba(255,255,255,0.1); }
 
-        /* Sections */
         .hero {
             height: 100vh;
             display: flex;
@@ -52,189 +40,146 @@
             padding: 0 20px;
         }
 
-        .logo {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .tm { font-size: 0.8rem; vertical-align: super; color: #888; font-weight: 400; }
-
-        .tagline {
-            font-size: 0.85rem;
-            color: #888;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
+        .macro-grip-container {
+            position: relative;
+            width: 200px;
+            height: 380px;
+            margin-bottom: 30px;
         }
 
-        /* Racket Visuals */
-        .racket-container {
-            display: flex;
-            gap: 50px;
-            justify-content: center;
-            margin-bottom: 40px;
-            filter: brightness(1.2);
-        }
-        .racket { display: flex; flex-direction: column; align-items: center; }
-        .racket-head {
-            width: 50px; height: 70px;
-            border: 3px solid #ffffff;
-            border-radius: 50% 50% 48% 48%;
-            background: rgba(255,255,255,0.05);
-        }
-        .racket-shaft { width: 3px; height: 50px; background: #fff; }
-        .racket-grip { width: 12px; height: 55px; border-radius: 1px; }
-        .glacier-grip { background: linear-gradient(to bottom, #7CFFFF, #0050D1); box-shadow: 0 0 20px rgba(124, 255, 255, 0.3); }
-        .berry-grip { background: linear-gradient(to bottom, #FFB6F1, #D319AD); box-shadow: 0 0 20px rgba(255, 182, 241, 0.3); }
-
-        /* Form Styling */
-        .waitlist-box { width: 100%; max-width: 350px; margin: 0 auto; }
-        .waitlist-form { display: flex; flex-direction: column; gap: 10px; }
-        
-        input[type="email"] {
-            padding: 16px; border-radius: 8px; border: 1px solid #333;
-            background: #111; color: white; text-align: center; font-size: 16px;
-        }
-
-        button {
-            padding: 16px; border-radius: 8px; border: none;
-            background: #fff; color: #000; font-weight: bold;
-            cursor: pointer; letter-spacing: 1px; transition: 0.3s;
-        }
-        button:hover { opacity: 0.8; }
-
-        /* Information Section (Utökad) */
-        .section {
-            padding: 80px 20px;
-            max-width: 900px;
+        .grip-visual {
+            width: 120px;
+            height: 300px;
             margin: 0 auto;
-            text-align: center;
+            position: relative;
+            background: #ffffff;
+            border-radius: 4px;
+            background: linear-gradient(to top, var(--glacier-bottom) 0%, var(--glacier-mid) 25%, #ffffff 60%);
+            box-shadow: inset -15px 0 25px rgba(0,0,0,0.1);
+            transition: background 1.5s ease-in-out;
         }
 
-        .section-tag { color: var(--glacier); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-        .section h2 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 700; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+        .finishing-tape {
+            width: 126px;
+            height: 25px;
+            background: #ffffff;
+            border: 1px solid #eee;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .grid-item h3 { font-size: 1rem; margin: 15px 0 10px; color: #fff; }
-        .grid-item p { font-size: 0.85rem; color: #aaa; font-weight: 300; }
-
-        /* Problemlösning (Känner du igen detta) */
-        .problem-section {
-            background: #0a0a0a;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-        }
-        
-        .instagram-link {
-            margin: 40px 0;
-            display: inline-block;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.5;
-        }
-
-        .footer {
-            padding: 40px 20px;
-            border-top: 1px solid #111;
-            font-size: 0.7rem;
-            color: #444;
+        .tape-logo {
+            font-size: 0.6rem;
+            font-weight: 900;
+            color: var(--silver-metallic);
             letter-spacing: 2px;
-            text-align: center;
+            text-transform: uppercase;
         }
 
-        #status { display: none; padding: 20px; border-radius: 8px; border: 1px solid var(--glacier); background: rgba(93, 224, 230, 0.05); }
+        .butt-cap {
+            width: 140px;
+            height: 50px;
+            background: #111;
+            margin: -2px auto 0;
+            border-radius: 4px 4px 12px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid var(--glacier-mid);
+            box-shadow: 0 10px 30px rgba(93, 224, 230, 0.15);
+            transition: border-color 1.5s ease-in-out;
+        }
 
+        .butt-cap-logo {
+            font-size: 0.9rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #222;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; text-transform: uppercase; }
+        .sub-head { color: #888; font-size: 0.95rem; max-width: 480px; margin: 0 auto 35px; font-weight: 300; }
+
+        .waitlist-form { width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 10px; margin: 0 auto; }
+        input { padding: 18px; border-radius: 12px; border: 1px solid #222; background: #111; color: #fff; text-align: center; }
+        button { padding: 18px; border-radius: 12px; border: none; background: #fff; color: #000; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        button:hover { background: var(--glacier-mid); }
+
+        .section { padding: 80px 20px; max-width: 850px; margin: 0 auto; text-align: center; }
+        .usp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; margin-top: 50px; }
+        .usp-item h3 { font-size: 0.85rem; letter-spacing: 1px; color: var(--glacier-mid); margin: 15px 0 10px; }
+        .usp-item p { font-size: 0.8rem; color: #666; }
+
+        .problem-box { background: #0a0a0a; padding: 40px; border-radius: 20px; margin-top: 60px; text-align: left; border: 1px solid #111; }
+        .problem-item { margin-bottom: 12px; font-size: 0.9rem; color: #888; }
+        .problem-item span { color: var(--berry-mid); margin-right: 10px; }
+
+        .footer { padding: 50px 20px; text-align: center; color: #333; font-size: 0.65rem; letter-spacing: 2px; line-height: 2; }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button onclick="setLanguage('sv')" id="btn-sv" class="lang-btn active">SV</button>
-        <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+    <div class="lang-switch" onclick="toggleLanguage()">
+        <img id="flag-img" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" class="flag-icon" alt="Switch Language">
     </div>
 
     <section class="hero">
-        <div class="logo">SILVE<span class="tm">™</span></div>
-        <div class="tagline">PREMIUM BADMINTON GRIPS</div>
-        
-        <div class="racket-container">
-            <div class="racket">
-                <div class="racket-head"></div>
-                <div class="racket-shaft"></div>
-                <div class="racket-grip glacier-grip"></div>
-            </div>
-            <div class="racket">
-                <div class="racket-head"></div>
-                <div class="racket-shaft"></div>
-                <div class="racket-grip berry-grip"></div>
-            </div>
-        </div>
-
-        <div id="form-container" class="waitlist-box">
-            <h2 id="hero-title">Världens bästa grepp landar snart.</h2>
-            <p id="hero-desc" class="tagline" style="margin-bottom: 25px;">Gå med för förtur och founders pricing.</p>
-            <form id="my-form" class="waitlist-form">
-                <input type="email" name="email" id="email-input" placeholder="Ange din e-post..." required>
-                <button id="submit-button" type="submit">FÅ VETA VID LANSERING</button>
-            </form>
-        </div>
-        <div id="status" class="waitlist-box">
-            <div id="status-title" style="color: var(--glacier); font-weight: bold;">Välkommen till klubben.</div>
-            <div id="status-desc" style="font-size: 0.9rem; color: #ccc;">Du är nu på väntelistan.</div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-tag" id="tag-dev">Under utveckling</div>
-        <h2 id="info-main-title">Vi testar. Vi förbättrar. Vi levererar.</h2>
-        <p id="info-main-desc" style="color: #888; max-width: 600px; margin: 0 auto;">Vi utvecklar just nu grepplindor för maximal kontroll, komfort och känsla – designade för att prestera när det verkligen gäller.</p>
-
-        <div class="grid">
-            <div class="grid-item">
-                <div style="font-size: 2rem;">🎾</div>
-                <h3 id="usp-1-t">BÄTTRE GREPP</h3>
-                <p id="usp-1-d">Maximalt grepp även vid svett och intensiva matcher.</p>
-            </div>
-            <div class="grid-item">
-                <div style="font-size: 2rem;">🛡️</div>
-                <h3 id="usp-2-t">LÄNGRE HÅLLBARHET</h3>
-                <p id="usp-2-d">Material som håller längre utan att tappa den där "nya" känslan.</p>
-            </div>
-            <div class="grid-item">
-                <div style="font-size: 2rem;">✨</div>
-                <h3 id="usp-3-t">KOMFORT & KÄNSLA</h3>
-                <p id="usp-3-d">Utformad för att ge rätt feedback i varje slag.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="problem-section">
-            <div class="section-tag" id="tag-problem">Känner du igen detta?</div>
-            <div class="grid" style="margin-top: 30px;">
-                <div style="text-align: left;" id="problem-list">
-                    <span style="color: var(--berry);">✕</span> <strong>Halt grepp:</strong> Svettiga händer gör att racket glider.<br>
-                    <span style="color: var(--berry);">✕</span> <strong>Sliten linda:</strong> Vanliga lindor slits snabbt och tappar stuns.<br>
-                    <span style="color: var(--berry);">✕</span> <strong>Mindre kontroll:</strong> Tappar du greppet tappar du spelet.
+        <div class="macro-grip-container">
+            <div class="grip-visual" id="grip-render">
+                <div class="finishing-tape">
+                    <div class="tape-logo">SILVE</div>
                 </div>
             </div>
-            <h3 style="margin-top: 40px; color: var(--glacier);" id="solution-text">Vi löser detta – hela matchen.</h3>
+            <div class="butt-cap" id="butt-color">
+                <div class="butt-cap-logo">SILVE</div>
+            </div>
         </div>
 
-        <a href="https://instagram.com/silvesports" target="_blank" class="instagram-link">
-            INSTAGRAM @SILVESPORTS
-        </a>
+        <h1 id="main-h">Framtiden av lindor</h1>
+        <p class="sub-head" id="main-p">Vi utvecklar just nu premium-lindor för maximal kontroll, komfort och känsla – designade för att prestera när det verkligen gäller.</p>
+
+        <div id="form-container">
+            <form id="my-form" class="waitlist-form">
+                <input type="email" name="email" id="email-in" placeholder="Din e-postadress..." required>
+                <button type="submit" id="btn-t">FÅ VETA NÄR VI SLÄPPER</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 id="usp-h">VI TESTAR. VI FÖRBÄTTRAR. VI LEVERERAR.</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div style="font-size: 1.5rem;">🏸</div>
+                <h3 id="u1-t">BÄTTRE GREPP</h3>
+                <p id="u1-p">Maximalt fäste även vid svett och intensiva matcher.</p>
+            </div>
+            <div class="usp-item">
+                <div style="font-size: 1.5rem;">🛡️</div>
+                <h3 id="u2-t">HÅLLBARHET</h3>
+                <p id="u2-p">Material som håller längre utan att tappa känslan.</p>
+            </div>
+            <div class="usp-item">
+                <div style="font-size: 1.5rem;">✨</div>
+                <h3 id="u3-t">KOMFORT</h3>
+                <p id="u3-p">Utformad för att ge rätt feedback i varje slag.</p>
+            </div>
+        </div>
+
+        <div class="problem-box">
+            <h3 id="prob-h" style="margin-top:0; font-size: 0.75rem; color: #444; letter-spacing: 2px;">KÄNNER DU IGEN DETTA?</h3>
+            <div class="problem-item"><span>✕</span> <strong id="p1">Halt grepp:</strong> <small id="p1-s">Racket glider vid svettiga händer.</small></div>
+            <div class="problem-item"><span>✕</span> <strong id="p2">Sliten linda:</strong> <small id="p2-s">Tappar stuns och grepp för snabbt.</small></div>
+            <div class="problem-item"><span>✕</span> <strong id="p3">Mindre kontroll:</strong> <small id="p3-s">Tappar du greppet, tappar du spelet.</small></div>
+            <h4 id="sol" style="color: var(--glacier-mid); margin-top: 25px; margin-bottom:0;">Vi löser detta – hela matchen.</h4>
+        </div>
     </section>
 
     <div class="footer">
@@ -243,100 +188,72 @@
     </div>
 
     <script>
-        const translations = {
+        let currentLang = 'sv';
+        const content = {
             sv: {
-                heroTitle: "Världens bästa grepp landar snart.",
-                heroDesc: "Gå med för förtur och founders pricing.",
-                emailPlac: "Ange din e-post...",
-                btnText: "FÅ VETA VID LANSERING",
-                statusT: "Välkommen till klubben.",
-                statusD: "Du är nu på väntelistan.",
-                tagDev: "Under utveckling",
-                infoT: "Vi testar. Vi förbättrar. Vi levererar.",
-                infoD: "Vi utvecklar just nu grepplindor för maximal kontroll, komfort och känsla.",
-                usp1T: "BÄTTRE GREPP", usp1D: "Maximalt grepp även vid svett och intensiva matcher.",
-                usp2T: "LÄNGRE HÅLLBARHET", usp2D: "Material som håller längre utan att tappa känslan.",
-                usp3T: "KOMFORT & KÄNSLA", usp3D: "Utformad för att ge rätt feedback i varje slag.",
-                tagProb: "Känner du igen detta?",
-                probList: `<span style="color: var(--berry);">✕</span> <strong>Halt grepp:</strong> Svettiga händer gör att racket glider.<br>
-                           <span style="color: var(--berry);">✕</span> <strong>Sliten linda:</strong> Vanliga lindor slits snabbt.<br>
-                           <span style="color: var(--berry);">✕</span> <strong>Mindre kontroll:</strong> Tappar du greppet tappar du spelet.`,
-                solution: "Vi löser detta – hela matchen."
+                mainH: "Framtiden av lindor",
+                mainP: "Vi utvecklar just nu premium-lindor för maximal kontroll, komfort och känsla – designade för att prestera när det verkligen gäller.",
+                email: "Din e-postadress...",
+                btn: "FÅ VETA NÄR VI SLÄPPER",
+                uspH: "VI TESTAR. VI FÖRBÄTTRAR. VI LEVERERAR.",
+                u1t: "BÄTTRE GREPP", u1p: "Maximalt fäste även vid svett och intensiva matcher.",
+                u2t: "HÅLLBARHET", u2p: "Material som håller längre utan att tappa känslan.",
+                u3t: "KOMFORT", u3p: "Utformad för att ge rätt feedback i varje slag.",
+                probH: "KÄNNER DU IGEN DETTA?",
+                p1: "Halt grepp:", p1s: "Racket glider vid svettiga händer.",
+                p2: "Sliten linda:", p2s: "Tappar stuns och grepp för snabbt.",
+                p3: "Mindre kontroll:", p3s: "Tappar du greppet, tappar du spelet.",
+                sol: "Vi löser detta – hela matchen.",
+                flag: "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
             },
             en: {
-                heroTitle: "The finest grips are landing soon.",
-                heroDesc: "Join for early access and founder's pricing.",
-                emailPlac: "Enter your email...",
-                btnText: "JOIN THE WAITLIST",
-                statusT: "Welcome to the club.",
-                statusD: "You're now on the waitlist.",
-                tagDev: "Under Development",
-                infoT: "We test. We improve. We deliver.",
-                infoD: "We are currently developing grips for maximum control, comfort, and feel.",
-                usp1T: "BETTER GRIP", usp1D: "Maximum tackiness even during intense matches.",
-                usp2T: "DURABILITY", usp2D: "Materials built to last without losing the 'new' feel.",
-                usp3T: "COMFORT & FEEL", usp3D: "Designed to provide the right feedback in every shot.",
-                tagProb: "Sound familiar?",
-                probList: `<span style="color: var(--berry);">✕</span> <strong>Slippery grip:</strong> Sweaty hands making the racket slide.<br>
-                           <span style="color: var(--berry);">✕</span> <strong>Worn out:</strong> Standard grips wear down too fast.<br>
-                           <span style="color: var(--berry);">✕</span> <strong>Less control:</strong> Losing your grip means losing the game.`,
-                solution: "We solve this – all match long."
+                mainH: "Next generation grips",
+                mainP: "Currently developing elite grips for maximum control, comfort, and feel – designed to perform when it matters most.",
+                email: "Enter your email...",
+                btn: "JOIN THE WAITLIST",
+                uspH: "WE TEST. WE IMPROVE. WE DELIVER.",
+                u1t: "SUPERIOR TACK", u1p: "Maximum grip even during intense matches.",
+                u2t: "DURABILITY", u2p: "Materials built to last without losing the feel.",
+                u3t: "COMFORT", u3p: "Designed for perfect feedback in every shot.",
+                probH: "SOUND FAMILIAR?",
+                p1: "Slippery grip:", p1s: "Racket sliding due to sweaty hands.",
+                p2: "Worn out:", p2s: "Losing tackiness and bounce too quickly.",
+                p3: "Less control:", p3s: "If you lose your grip, you lose the game.",
+                sol: "We solve this – all match long.",
+                flag: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Sweden.svg"
             }
         };
 
-        function setLanguage(lang) {
-            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
-            document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
-            document.getElementById('email-input').placeholder = translations[lang].emailPlac;
-            document.getElementById('submit-button').innerText = translations[lang].btnText;
-            document.getElementById('status-title').innerText = translations[lang].statusT;
-            document.getElementById('status-desc').innerText = translations[lang].statusD;
-            document.getElementById('tag-dev').innerText = translations[lang].tagDev;
-            document.getElementById('info-main-title').innerText = translations[lang].infoT;
-            document.getElementById('info-main-desc').innerText = translations[lang].infoD;
-            document.getElementById('usp-1-t').innerText = translations[lang].usp1T;
-            document.getElementById('usp-1-d').innerText = translations[lang].usp1D;
-            document.getElementById('usp-2-t').innerText = translations[lang].usp2T;
-            document.getElementById('usp-2-d').innerText = translations[lang].usp2D;
-            document.getElementById('usp-3-t').innerText = translations[lang].usp3T;
-            document.getElementById('usp-3-d').innerText = translations[lang].usp3D;
-            document.getElementById('tag-problem').innerText = translations[lang].tagProb;
-            document.getElementById('problem-list').innerHTML = translations[lang].probList;
-            document.getElementById('solution-text').innerText = translations[lang].solution;
-
-            document.getElementById('btn-sv').classList.toggle('active', lang === 'sv');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        function toggleLanguage() {
+            currentLang = currentLang === 'sv' ? 'en' : 'sv';
+            const c = content[currentLang];
+            document.getElementById('main-h').innerText = c.mainH;
+            document.getElementById('main-p').innerText = c.mainP;
+            document.getElementById('email-in').placeholder = c.email;
+            document.getElementById('btn-t').innerText = c.btn;
+            document.getElementById('usp-h').innerText = c.uspH;
+            document.getElementById('u1-t').innerText = c.u1t; document.getElementById('u1-p').innerText = c.u1p;
+            document.getElementById('u2-t').innerText = c.u2t; document.getElementById('u2-p').innerText = c.u2p;
+            document.getElementById('u3-t').innerText = c.u3t; document.getElementById('u3-p').innerText = c.u3p;
+            document.getElementById('prob-h').innerText = c.probH;
+            document.getElementById('p1').innerText = c.p1; document.getElementById('p1-s').innerText = c.p1s;
+            document.getElementById('p2').innerText = c.p2; document.getElementById('p2-s').innerText = c.p2s;
+            document.getElementById('p3').innerText = c.p3; document.getElementById('p3-s').innerText = c.p3s;
+            document.getElementById('sol').innerText = c.sol;
+            document.getElementById('flag-img').src = c.flag;
         }
-
-        var form = document.getElementById("my-form");
-        var formContainer = document.getElementById("form-container");
-        var statusBox = document.getElementById("status");
-        var button = document.getElementById("submit-button");
-
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var data = new FormData(event.target);
-          button.innerHTML = "...";
-          button.disabled = true;
-
-          fetch("https://formspree.io/f/xqenzone", {
-            method: "POST",
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          }).then(response => {
-            if (response.ok) {
-              formContainer.style.display = "none";
-              statusBox.style.display = "block";
+        
+        setInterval(() => {
+            const grip = document.getElementById('grip-render');
+            const butt = document.getElementById('butt-color');
+            if(grip.style.background.includes('berry')) {
+                grip.style.background = `linear-gradient(to top, var(--glacier-bottom) 0%, var(--glacier-mid) 25%, #ffffff 60%)`;
+                butt.style.borderBottomColor = `var(--glacier-mid)`;
             } else {
-              button.innerHTML = "ERR";
-              button.disabled = false;
+                grip.style.background = `linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 60%)`;
+                butt.style.borderBottomColor = `var(--berry-mid)`;
             }
-          }).catch(error => {
-            button.innerHTML = "ERR";
-            button.disabled = false;
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
+        }, 3000);
     </script>
 </body>
 </html>
