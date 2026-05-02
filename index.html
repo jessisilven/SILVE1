@@ -137,14 +137,27 @@
             opacity: 0.9;
         }
         
+        /* Uppdaterad stil för tack-meddelandet */
         #status {
-            margin-top: 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            min-height: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none; /* Dold från början */
         }
-        .success { color: #5DE0E6; }
-        .error { color: #ff4a4a; }
+        .success-box {
+            border: 1px solid #5DE0E6;
+            background: rgba(93, 224, 230, 0.05);
+        }
+        .success-title {
+            color: #5DE0E6;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .success-text {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
 
         .location-tag {
             margin-top: 60px;
@@ -184,7 +197,10 @@
             </form>
         </div>
         
-        <div id="status"></div>
+        <div id="status">
+            <div class="success-title">Welcome to the club.</div>
+            <div class="success-text">You're now on the waitlist. We will notify you as soon as the collection drops.</div>
+        </div>
         
         <div class="location-tag">Stockholm Edition | silvesports.se</div>
     </div>
@@ -192,7 +208,7 @@
     <script>
         var form = document.getElementById("my-form");
         var formContainer = document.getElementById("form-container");
-        var status = document.getElementById("status");
+        var statusBox = document.getElementById("status");
         var button = document.getElementById("submit-button");
 
         async function handleSubmit(event) {
@@ -210,19 +226,16 @@
             }
           }).then(response => {
             if (response.ok) {
+              // Dölj formulär och visa tack-boxen
               formContainer.style.display = "none";
-              status.innerHTML = "Thanks! You are now on the waitlist.";
-              status.className = "success";
+              statusBox.style.display = "block";
+              statusBox.className = "success-box";
             } else {
-              status.innerHTML = "Oops! Problem with the submission.";
-              status.className = "error";
-              button.innerHTML = "JOIN THE WAITLIST";
+              button.innerHTML = "ERROR - TRY AGAIN";
               button.disabled = false;
             }
           }).catch(error => {
-            status.innerHTML = "Check your connection and try again.";
-            status.className = "error";
-            button.innerHTML = "JOIN THE WAITLIST";
+            button.innerHTML = "CONNECTION ERROR";
             button.disabled = false;
           });
         }
