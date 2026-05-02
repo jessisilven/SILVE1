@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center; /* Centrerar allt på skärmen */
             min-height: 100vh;
         }
         .content {
@@ -47,6 +47,8 @@
             gap: 60px;
             justify-content: center;
             margin-bottom: 50px;
+            /* Fix för äldre mobiler/Safari */
+            -webkit-filter: blur(10px) brightness(1.1);
             filter: blur(10px) brightness(1.1); 
             opacity: 0.7;
             pointer-events: none;
@@ -167,8 +169,7 @@
         <h2>The finest grips are landing soon.</h2>
         <div class="info-text">Join for early access and founder's pricing.</div>
         
-        <!-- HÄR ÄR DET FIXADE FORMULÄRET -->
-        <form class="waitlist-form" action="https://formspree.io" method="POST">
+        <form class="waitlist-form" action="https://formspree.io/f/xqenzone" method="POST">
             <input type="email" name="email" placeholder="Enter your email..." required>
             <input type="hidden" name="_next" value="https://silvesports.se">
             <button type="submit">JOIN THE WAITLIST</button>
