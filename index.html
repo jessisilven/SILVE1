@@ -33,10 +33,10 @@
         .container { max-width: 500px; margin: 0 auto; padding: 40px 20px; }
 
         /* LOGO */
-        .header { padding: 40px 0; }
+        .header { padding: 40px 0 20px; }
         .main-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; margin: 0; position: relative; display: inline-block; }
         .tm { font-size: 0.9rem; position: absolute; top: 8px; right: -25px; color: #444; font-weight: 400; }
-        .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; }
+        .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; text-transform: uppercase; }
 
         /* RACKET VISUAL */
         .racket-handle-container {
@@ -63,7 +63,23 @@
             transition: all 1.5s ease-in-out;
         }
 
-        /* STOCKHOLM EDITION CARD - CLEAN LINE ART BUILDINGS */
+        /* TEXT SECTIONS FOR THE GRIP */
+        .main-claim { font-size: 1.4rem; font-weight: 900; margin: 40px 0 10px; }
+        .main-sub { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 40px; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-item { text-align: center; }
+        .feature-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+        .feature-item h3 { font-size: 0.75rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+        .feature-item p { font-size: 0.7rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
+
+        /* STOCKHOLM EDITION CARD */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -75,14 +91,12 @@
             overflow: hidden;
         }
         
-        /* Ren Line Art Siluett av Stockholm (Stadshuset, Riddarholmen etc) */
         .stockholm-line-art {
             height: 80px;
             width: 100%;
             margin-bottom: 25px;
             background-repeat: no-repeat;
             background-size: contain;
-            /* Denna SVG ritar tydliga linjer istället för fyllda block */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.5' stroke-opacity='0.4' d='M5,40 L5,25 L10,25 L10,15 L15,15 L15,25 L20,25 L20,40 M25,40 L25,10 L30,5 L35,10 L35,40 M40,40 L40,20 L50,20 L50,10 L55,10 L55,20 L65,20 L65,40 M70,40 L70,15 L75,15 L75,5 L80,5 L80,15 L85,15 L85,40 M90,40 L90,20 L95,20 L95,40'/%3E%3C/svg%3E");
         }
 
@@ -90,7 +104,7 @@
         .edition-card p { font-size: 0.85rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
 
         /* FORM */
-        .waitlist-section { margin: 60px 0; }
+        .waitlist-section { margin: 80px 0; }
         .form-container {
             background: #111; padding: 6px; border-radius: 16px; border: 1px solid #222; display: flex;
         }
@@ -102,7 +116,7 @@
         }
         .form-container button:hover { background: var(--glacier-mid); }
 
-        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 2px; }
+        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 2px; text-transform: uppercase; }
 
         .berry-active {
             background: linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 65%) !important;
@@ -122,6 +136,32 @@
         <div class="grip-visual" id="grip"></div>
     </div>
 
+    <h2 class="main-claim">Built for control. Made to last.</h2>
+    <p class="main-sub">Maximum grip even in the toughest matches.</p>
+
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="feature-icon">💧</span>
+            <h3>Sweat Resistant</h3>
+            <p>Advanced surface keeps you locked in during intense play.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">📚</span>
+            <h3>Long Lasting</h3>
+            <p>Durable materials that maintain grip match after match.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🎯</span>
+            <h3>Max Control</h3>
+            <p>Perfect thickness for precision and confident shots.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🛡️</span>
+            <h3>Competition Ready</h3>
+            <p>Tested by players. Built for performance.</p>
+        </div>
+    </div>
+
     <div class="edition-card">
         <div class="stockholm-line-art"></div>
         <h2>STOCKHOLM EDITION</h2>
@@ -129,8 +169,8 @@
     </div>
 
     <section class="waitlist-section">
-        <h2 style="font-weight: 900;">Join the waitlist</h2>
-        <p style="color: var(--text-dim); margin-bottom: 25px;">Be the first to know when we drop. No spam.</p>
+        <h2 style="font-weight: 900; margin-bottom: 10px;">Join the waitlist</h2>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Be the first to know when we launch. No spam.</p>
         
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
             <input type="email" name="email" placeholder="Enter your email" required>
