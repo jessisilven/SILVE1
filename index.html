@@ -38,7 +38,7 @@
         .tm { font-size: 0.9rem; position: absolute; top: 8px; right: -25px; color: #444; font-weight: 400; }
         .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; }
 
-        /* RACKET VISUAL - CLEAN */
+        /* RACKET VISUAL */
         .racket-handle-container {
             height: 350px;
             display: flex;
@@ -49,9 +49,10 @@
         }
 
         .racket-cone {
-            width: 40px; height: 30px;
+            width: 40px; height: 35px;
             background: #151515;
             clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+            margin-bottom: -1px;
         }
 
         .grip-visual {
@@ -62,7 +63,7 @@
             transition: all 1.5s ease-in-out;
         }
 
-        /* STOCKHOLM EDITION CARD - IMPROVED SKYLINE */
+        /* STOCKHOLM EDITION CARD - CLEAN LINE ART BUILDINGS */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -74,14 +75,15 @@
             overflow: hidden;
         }
         
-        /* Tydlig och ren siluett av Stockholm */
-        .stockholm-skyline {
-            height: 70px;
+        /* Ren Line Art Siluett av Stockholm (Stadshuset, Riddarholmen etc) */
+        .stockholm-line-art {
+            height: 80px;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background-repeat: no-repeat;
             background-size: contain;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath fill='white' fill-opacity='0.2' d='M0 30h100V25h-2v-10h-4v10h-2v-5h-3v5h-2v-15h-4v15h-3v-8h-2v8h-4v-18h-4v18h-5v-10h-2v10H0z'/%3E%3C/svg%3E");
+            /* Denna SVG ritar tydliga linjer istället för fyllda block */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.5' stroke-opacity='0.4' d='M5,40 L5,25 L10,25 L10,15 L15,15 L15,25 L20,25 L20,40 M25,40 L25,10 L30,5 L35,10 L35,40 M40,40 L40,20 L50,20 L50,10 L55,10 L55,20 L65,20 L65,40 M70,40 L70,15 L75,15 L75,5 L80,5 L80,15 L85,15 L85,40 M90,40 L90,20 L95,20 L95,40'/%3E%3C/svg%3E");
         }
 
         .edition-card h2 { font-size: 1.1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
@@ -93,13 +95,14 @@
             background: #111; padding: 6px; border-radius: 16px; border: 1px solid #222; display: flex;
         }
         .form-container input {
-            flex: 1; background: transparent; border: none; padding: 15px; color: #fff; outline: none;
+            flex: 1; background: transparent; border: none; padding: 15px; color: #fff; outline: none; font-family: 'Inter', sans-serif;
         }
         .form-container button {
-            background: #fff; color: #000; border: none; padding: 0 25px; border-radius: 12px; font-weight: 900; cursor: pointer;
+            background: #fff; color: #000; border: none; padding: 0 25px; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.3s;
         }
+        .form-container button:hover { background: var(--glacier-mid); }
 
-        .footer { padding: 60px 0 20px; font-size: 0.65rem; color: #333; letter-spacing: 2px; }
+        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 2px; }
 
         .berry-active {
             background: linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 65%) !important;
@@ -120,14 +123,14 @@
     </div>
 
     <div class="edition-card">
-        <div class="stockholm-skyline"></div>
+        <div class="stockholm-line-art"></div>
         <h2>STOCKHOLM EDITION</h2>
         <p>A limited drop inspired by the architectural aesthetics of our hometown. Crafted for elite performance, designed for style. <br><br><strong>LAUNCHING JUNE 2026.</strong></p>
     </div>
 
     <section class="waitlist-section">
         <h2 style="font-weight: 900;">Join the waitlist</h2>
-        <p style="color: var(--text-dim); margin-bottom: 25px;">Be the first to know when we drop.</p>
+        <p style="color: var(--text-dim); margin-bottom: 25px;">Be the first to know when we drop. No spam.</p>
         
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
             <input type="email" name="email" placeholder="Enter your email" required>
