@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -27,53 +27,42 @@
             background-color: var(--bg-dark);
             color: #ffffff;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            text-align: center;
         }
 
-        .container { max-width: 500px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        .container { max-width: 500px; margin: 0 auto; padding: 40px 20px; }
 
-        /* LOGO SECTION */
-        .header { padding: 40px 0 20px 0; }
-        .main-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; margin: 0; display: inline-block; position: relative; }
-        .tm { font-size: 0.9rem; position: absolute; top: 5px; right: -25px; font-weight: 400; color: #555; }
-        .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; font-weight: 300; }
+        /* LOGO */
+        .header { padding: 40px 0; }
+        .main-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; margin: 0; position: relative; display: inline-block; }
+        .tm { font-size: 0.9rem; position: absolute; top: 8px; right: -25px; color: #444; font-weight: 400; }
+        .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; }
 
-        /* REALISTIC RACKET VISUAL */
+        /* RACKET VISUAL - CLEAN */
         .racket-handle-container {
-            height: 380px;
+            height: 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 40px 0;
+            margin: 20px 0;
         }
 
         .racket-cone {
-            width: 45px;
-            height: 35px;
+            width: 40px; height: 30px;
             background: #151515;
             clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
-            margin-bottom: -1px;
         }
 
         .grip-visual {
-            width: 110px;
-            height: 290px;
+            width: 105px; height: 280px;
             background: linear-gradient(to top, var(--glacier-bottom) 0%, var(--glacier-mid) 25%, #ffffff 65%);
             border-radius: 2px 2px 4px 4px;
             box-shadow: inset -15px 0 30px rgba(0,0,0,0.3);
             transition: all 1.5s ease-in-out;
-            position: relative;
         }
 
-        /* FEATURES SECTION */
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 60px 0; }
-        .feature-item { text-align: center; }
-        .feature-icon { font-size: 22px; margin-bottom: 10px; opacity: 0.9; }
-        .feature-item h3 { font-size: 0.75rem; font-weight: 700; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-        .feature-item p { font-size: 0.7rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
-
-        /* STOCKHOLM EDITION CARD WITH REAL SILHOUETTE */
+        /* STOCKHOLM EDITION CARD - IMPROVED SKYLINE */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -85,63 +74,35 @@
             overflow: hidden;
         }
         
-        /* Grafisk Stadssiluett baserad på din bild */
+        /* Tydlig och ren siluett av Stockholm */
         .stockholm-skyline {
-            height: 60px;
+            height: 70px;
             width: 100%;
-            margin-bottom: 25px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30" fill="white" opacity="0.3"><path d="M0 30h100V25l-2-1v-8h-3v9l-2-1v-12h-4v13l-3-2v-15h-4v17l-5-4-3 4-2-10-4 6-2-18-3 12-5-6-3 12-4-8-3 10-2-12-3 14-5-8-5 12z"/></svg>');
-            background-repeat: repeat-x;
+            margin-bottom: 20px;
+            background-repeat: no-repeat;
             background-size: contain;
-            filter: drop-shadow(0 0 5px rgba(93,224,230,0.2));
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Cpath fill='white' fill-opacity='0.2' d='M0 30h100V25h-2v-10h-4v10h-2v-5h-3v5h-2v-15h-4v15h-3v-8h-2v8h-4v-18h-4v18h-5v-10h-2v10H0z'/%3E%3C/svg%3E");
         }
 
         .edition-card h2 { font-size: 1.1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
-        .edition-card p { font-size: 0.85rem; color: var(--text-dim); margin-top: 12px; line-height: 1.6; }
+        .edition-card p { font-size: 0.85rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
 
-        /* WAITLIST FORM */
-        .waitlist-section { margin-top: 80px; }
-        .waitlist-section h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
-        .waitlist-section p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 30px; }
-
+        /* FORM */
+        .waitlist-section { margin: 60px 0; }
         .form-container {
-            background: #111;
-            padding: 6px;
-            border-radius: 16px;
-            border: 1px solid #222;
-            display: flex;
+            background: #111; padding: 6px; border-radius: 16px; border: 1px solid #222; display: flex;
         }
-
         .form-container input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 15px;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
+            flex: 1; background: transparent; border: none; padding: 15px; color: #fff; outline: none;
         }
-
         .form-container button {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 0 30px;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: 0.3s;
+            background: #fff; color: #000; border: none; padding: 0 25px; border-radius: 12px; font-weight: 900; cursor: pointer;
         }
 
-        .form-container button:hover { background: var(--glacier-mid); transform: scale(1.02); }
+        .footer { padding: 60px 0 20px; font-size: 0.65rem; color: #333; letter-spacing: 2px; }
 
-        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 3px; text-transform: uppercase; }
-
-        /* ANIMATION */
         .berry-active {
             background: linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 65%) !important;
-            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3), 0 0 40px rgba(235, 143, 214, 0.1) !important;
         }
     </style>
 </head>
@@ -158,29 +119,6 @@
         <div class="grip-visual" id="grip"></div>
     </div>
 
-    <div class="features">
-        <div class="feature-item">
-            <div class="feature-icon">💧</div>
-            <h3>Sweat Resistant</h3>
-            <p>Advanced surface keeping you locked in during intense play.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">♾️</div>
-            <h3>Long Lasting</h3>
-            <p>Durable materials that maintain peak grip match after match.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🎯</div>
-            <h3>Max Control</h3>
-            <p>The perfect thickness for precision and confident shots.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🏆</div>
-            <h3>Elite Performance</h3>
-            <p>Designed for athletes who refuse to settle for second best.</p>
-        </div>
-    </div>
-
     <div class="edition-card">
         <div class="stockholm-skyline"></div>
         <h2>STOCKHOLM EDITION</h2>
@@ -188,8 +126,8 @@
     </div>
 
     <section class="waitlist-section">
-        <h2>Join the waitlist</h2>
-        <p>Be the first to know when we drop. Limited quantities.</p>
+        <h2 style="font-weight: 900;">Join the waitlist</h2>
+        <p style="color: var(--text-dim); margin-bottom: 25px;">Be the first to know when we drop.</p>
         
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
             <input type="email" name="email" placeholder="Enter your email" required>
