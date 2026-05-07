@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S I L V E™ | Premium Badminton Grips</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -31,13 +34,13 @@
 
         /* LOGO SECTION */
         .header { padding: 40px 0 20px 0; }
-        .main-logo { font-size: 2.5rem; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; margin: 0; display: inline-block; position: relative; }
-        .tm { font-size: 0.8rem; position: absolute; top: 5px; right: -20px; font-weight: 400; color: #444; }
+        .main-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; margin: 0; display: inline-block; position: relative; }
+        .tm { font-size: 0.9rem; position: absolute; top: 5px; right: -25px; font-weight: 400; color: #555; }
         .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; font-weight: 300; }
 
         /* REALISTIC RACKET VISUAL */
         .racket-handle-container {
-            height: 400px;
+            height: 380px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,83 +48,66 @@
             margin: 40px 0;
         }
 
-        /* The "Cone" part of the racket */
         .racket-cone {
-            width: 40px;
-            height: 30px;
-            background: #1a1a1a;
-            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-            margin-bottom: -2px;
+            width: 45px;
+            height: 35px;
+            background: #151515;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+            margin-bottom: -1px;
         }
 
         .grip-visual {
-            width: 100px;
-            height: 280px;
+            width: 110px;
+            height: 290px;
             background: linear-gradient(to top, var(--glacier-bottom) 0%, var(--glacier-mid) 25%, #ffffff 65%);
-            border-radius: 2px 2px 8px 8px;
-            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3), 0 10px 40px rgba(93, 224, 230, 0.1);
+            border-radius: 2px 2px 4px 4px;
+            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3);
             transition: all 1.5s ease-in-out;
             position: relative;
-        }
-
-        /* Finishing tape */
-        .finishing-tape {
-            position: absolute;
-            top: 10px;
-            width: 106px;
-            left: -3px;
-            height: 22px;
-            background: #ffffff;
-            border: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.5rem;
-            font-weight: 900;
-            color: #ccc;
-            letter-spacing: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         /* FEATURES SECTION */
         .features { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 60px 0; }
         .feature-item { text-align: center; }
-        .feature-icon { font-size: 20px; margin-bottom: 8px; color: #fff; }
+        .feature-icon { font-size: 22px; margin-bottom: 10px; opacity: 0.9; }
         .feature-item h3 { font-size: 0.75rem; font-weight: 700; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
         .feature-item p { font-size: 0.7rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
 
-        /* STOCKHOLM EDITION CARD */
+        /* STOCKHOLM EDITION CARD WITH REAL SILHOUETTE */
         .edition-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 35px;
+            border-radius: 24px;
+            padding: 40px 30px;
             margin: 40px 0;
             text-align: left;
             border: 1px solid #151515;
             position: relative;
+            overflow: hidden;
         }
         
+        /* Grafisk Stadssiluett baserad på din bild */
         .stockholm-skyline {
-            height: 40px;
+            height: 60px;
             width: 100%;
-            margin-bottom: 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" fill="white" opacity="0.2"><path d="M0 20h100V15l-5-2-3 2-2-5-4 3-2-8-3 5-5-2-3 7-4-3-3 5-2-4-3 6-5-3-5 5z"/></svg>');
+            margin-bottom: 25px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30" fill="white" opacity="0.3"><path d="M0 30h100V25l-2-1v-8h-3v9l-2-1v-12h-4v13l-3-2v-15h-4v17l-5-4-3 4-2-10-4 6-2-18-3 12-5-6-3 12-4-8-3 10-2-12-3 14-5-8-5 12z"/></svg>');
             background-repeat: repeat-x;
             background-size: contain;
+            filter: drop-shadow(0 0 5px rgba(93,224,230,0.2));
         }
 
-        .edition-card h2 { font-size: 1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
-        .edition-card p { font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
+        .edition-card h2 { font-size: 1.1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
+        .edition-card p { font-size: 0.85rem; color: var(--text-dim); margin-top: 12px; line-height: 1.6; }
 
         /* WAITLIST FORM */
-        .waitlist-section { margin-top: 60px; }
-        .waitlist-section h2 { font-size: 1.4rem; font-weight: 900; margin-bottom: 5px; }
-        .waitlist-section p { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 25px; }
+        .waitlist-section { margin-top: 80px; }
+        .waitlist-section h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
+        .waitlist-section p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 30px; }
 
         .form-container {
             background: #111;
             padding: 6px;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid #222;
             display: flex;
         }
@@ -130,9 +116,9 @@
             flex: 1;
             background: transparent;
             border: none;
-            padding: 12px 15px;
+            padding: 15px;
             color: #fff;
-            font-size: 0.9rem;
+            font-size: 1rem;
             outline: none;
         }
 
@@ -140,22 +126,22 @@
             background: #fff;
             color: #000;
             border: none;
-            padding: 0 25px;
-            border-radius: 10px;
+            padding: 0 30px;
+            border-radius: 12px;
             font-weight: 900;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .form-container button:hover { background: var(--glacier-mid); }
+        .form-container button:hover { background: var(--glacier-mid); transform: scale(1.02); }
 
-        .footer { padding: 60px 0 20px; font-size: 0.6rem; color: #333; letter-spacing: 2px; text-transform: uppercase; }
+        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 3px; text-transform: uppercase; }
 
-        /* BERRY MODE CLASS */
+        /* ANIMATION */
         .berry-active {
             background: linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 65%) !important;
-            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3), 0 10px 40px rgba(235, 143, 214, 0.1) !important;
+            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3), 0 0 40px rgba(235, 143, 214, 0.1) !important;
         }
     </style>
 </head>
@@ -169,9 +155,7 @@
 
     <div class="racket-handle-container">
         <div class="racket-cone"></div>
-        <div class="grip-visual" id="grip">
-            <div class="finishing-tape">SILVE</div>
-        </div>
+        <div class="grip-visual" id="grip"></div>
     </div>
 
     <div class="features">
@@ -200,7 +184,7 @@
     <div class="edition-card">
         <div class="stockholm-skyline"></div>
         <h2>STOCKHOLM EDITION</h2>
-        <p>A limited drop inspired by the aesthetics of our hometown. Designed for performance, crafted for style. <br><br><strong>AVAILABLE JUNE 2026.</strong></p>
+        <p>A limited drop inspired by the architectural aesthetics of our hometown. Crafted for elite performance, designed for style. <br><br><strong>LAUNCHING JUNE 2026.</strong></p>
     </div>
 
     <section class="waitlist-section">
