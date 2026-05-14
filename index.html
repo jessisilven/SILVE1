@@ -70,11 +70,12 @@
 
         .tagline-container { margin-top: 15px; }
 
+        /* Ändrad färg till --text-dim för att matcha texten under */
         .tagline-main {
             font-size: 0.8rem;
             font-weight: 400; 
             letter-spacing: 5px; 
-            color: #ffffff;
+            color: var(--text-dim); 
             text-transform: uppercase;
             display: block;
             margin-bottom: 8px;
@@ -107,7 +108,7 @@
             display: block;
         }
 
-        /* WAITLIST SECTION - FIXAD KNAPP INNANFÖR LINJERNA */
+        /* WAITLIST SECTION */
         .waitlist-section { 
             margin: 20px 0 40px; 
             background: #0a0a0a;
@@ -117,7 +118,7 @@
         }
         .form-container {
             background: #111; 
-            padding: 4px; /* Lite mindre padding för att knappen ska få plats */
+            padding: 4px; 
             border-radius: 16px; 
             border: 1px solid #222; 
             display: flex;
@@ -144,7 +145,7 @@
             font-size: 0.75rem;
             transition: 0.3s;
             white-space: nowrap;
-            margin-right: 2px; /* Skapar ett litet avstånd från kanten så den ligger "innanför" */
+            margin-right: 2px;
         }
         .form-container button:hover {
             background: var(--glacier-mid);
