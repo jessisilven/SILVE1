@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -24,13 +24,13 @@
             margin: 0; padding: 0;
             background-color: var(--bg-dark);
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Ändrat till Montserrat */
             text-align: center;
         }
 
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* SPRÅKKNAPP HÖGST UPP TILL HÖGER */
+        /* SPRÅKKNAPP */
         .lang-toggle {
             position: absolute;
             top: 20px;
@@ -40,51 +40,64 @@
             background: rgba(255,255,255,0.05);
             padding: 5px 10px;
             border-radius: 8px;
-            transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.1);
             z-index: 100;
         }
 
-        /* LOGO MED TRADEMARK */
-        .header { padding: 40px 0 10px; }
+        /* HEADER & LOGO */
+        .header { padding: 40px 0 20px; }
+        
         .main-logo { 
-            font-size: 3.5rem; 
+            font-size: 3rem; 
             font-weight: 900; 
-            letter-spacing: 8px; 
+            letter-spacing: 12px; /* Mellanrum mellan S I L V E */
             text-transform: uppercase; 
             margin: 0; 
             position: relative; 
-            display: inline-block; 
+            display: inline-block;
+            padding-right: 10px;
         }
         
         .tm-symbol { 
             font-size: 0.7rem; 
             position: absolute;
-            top: 8px; 
-            right: -12px;
+            top: 5px; 
+            right: -5px;
             color: #ffffff;
             font-weight: 400;
-            opacity: 0.9;
+            letter-spacing: normal;
         }
 
-        .tagline { 
-            font-size: 0.85rem; 
-            color: var(--text-dim); 
-            letter-spacing: 2px; 
-            margin-top: 10px; 
-            text-transform: uppercase; 
+        .tagline-container { margin-top: 15px; }
+
+        .tagline-main {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 5px; /* Mellanrum mellan bokstäverna */
+            color: #ffffff;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .tagline-sub {
+            font-size: 0.65rem; /* Mindre format */
+            font-weight: 400;
+            letter-spacing: 0; /* Inga mellanrum */
+            color: var(--text-dim);
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
         }
         
-        .mini-flag-inline { font-size: 0.8rem; margin: 0 4px; }
+        .mini-flag { font-size: 0.8rem; }
 
         /* PRODUCT IMAGE */
         .racket-handle-container {
             width: 100%;
-            margin: 20px 0;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
         }
@@ -106,26 +119,22 @@
             background: #111; padding: 6px; border-radius: 16px; border: 1px solid #222; display: flex;
         }
         .form-container input {
-            flex: 1; background: transparent; border: none; padding: 12px; color: #fff; outline: none; font-family: 'Inter', sans-serif;
+            flex: 1; background: transparent; border: none; padding: 12px; color: #fff; outline: none; font-family: 'Montserrat', sans-serif;
         }
         .form-container button {
-            background: #fff; color: #000; border: none; padding: 0 20px; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.3s; font-size: 0.8rem;
+            background: #fff; color: #000; border: none; padding: 0 20px; border-radius: 12px; font-weight: 900; cursor: pointer; font-size: 0.75rem;
         }
-        .form-container button:hover { background: var(--glacier-mid); }
 
-        /* FEATURES GRID */
+        /* FEATURES & CARDS */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin: 40px 0;
         }
-        .feature-item { text-align: center; }
-        .feature-icon { font-size: 20px; margin-bottom: 8px; display: block; }
-        .feature-item h3 { font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+        .feature-item h3 { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; margin: 0; }
         .feature-item p { font-size: 0.65rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
 
-        /* STOCKHOLM EDITION CARD */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -133,27 +142,19 @@
             margin: 20px 0;
             text-align: left;
             border: 1px solid #151515;
-            position: relative;
         }
         .stockholm-line-art {
-            height: 60px;
+            height: 50px;
             width: 100%;
             margin-bottom: 20px;
             background-repeat: no-repeat;
             background-size: contain;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.5' stroke-opacity='0.3' d='M5,40 L5,25 L10,25 L10,15 L15,15 L15,25 L20,25 L20,40 M25,40 L25,10 L30,5 L35,10 L35,40 M40,40 L40,20 L50,20 L50,10 L55,10 L55,20 L65,20 L65,40 M70,40 L70,15 L75,15 L75,5 L80,5 L80,15 L85,15 L85,40 M90,40 L90,20 L95,20 L95,40'/%3E%3C/svg%3E");
         }
-        .edition-card h2 { font-size: 1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
-        .edition-card p { font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
+        .edition-card h2 { font-size: 0.9rem; font-weight: 900; }
+        .edition-card p { font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; }
 
-        /* FOOTER */
-        .footer { 
-            padding: 40px 0 20px; 
-            font-size: 0.75rem; 
-            color: var(--text-light);
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-        }
+        .footer { padding: 40px 0 20px; font-size: 0.7rem; color: var(--text-light); letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -162,12 +163,14 @@
     <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">🇬🇧</div>
 
     <header class="header">
-        <div class="main-logo">SILVE<span class="tm-symbol">™</span></div>
-        <p class="tagline">
-            <span id="taglineGrips">PREMIUM BADMINTON GRIPS</span> 
-            <span class="mini-flag-inline">🇸🇪</span> 
-            <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
-        </p>
+        <div class="main-logo">S I L V E<span class="tm-symbol">™</span></div>
+        
+        <div class="tagline-container">
+            <span class="tagline-main" id="taglineGrips">PREMIUM BADMINTON GRIPS</span>
+            <span class="tagline-sub">
+                <span class="mini-flag">🇸🇪</span> <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
+            </span>
+        </div>
     </header>
 
     <div class="racket-handle-container">
@@ -175,7 +178,7 @@
     </div>
 
     <section class="waitlist-section">
-        <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 8px; font-size: 1.2rem;">Gå med i väntelistan</h2>
+        <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 8px; font-size: 1.1rem;">Gå med i väntelistan</h2>
         <p id="waitlistSub" style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.8rem;">Var först med att veta när vi lanserar.</p>
         
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
@@ -214,7 +217,7 @@
     </div>
 
     <footer class="footer">
-        SILVE SPORTS ™<br>
+        S I L V E ™<br>
         © 2026 STOCKHOLM, SWEDEN
     </footer>
 </div>
