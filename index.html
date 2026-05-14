@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,21 +28,25 @@
             text-align: center;
         }
 
-        .container { max-width: 500px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* LANGUAGE SELECTOR */
-        .lang-selector {
-            text-align: left;
-            padding: 10px 0;
-            display: flex;
-            gap: 15px;
-            font-size: 1.2rem;
+        /* DISKRET SPRÅKKNAPP HÖGST UPP TILL HÖGER */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.05);
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .lang-selector span { cursor: pointer; filter: grayscale(0.3); transition: 0.3s; }
-        .lang-selector span:hover { filter: grayscale(0); transform: scale(1.1); }
+        .lang-toggle:hover { background: rgba(255,255,255,0.15); }
 
         /* LOGO */
-        .header { padding: 20px 0 10px; }
+        .header { padding: 40px 0 10px; }
         .main-logo { 
             font-size: 3.5rem; 
             font-weight: 900; 
@@ -52,27 +56,25 @@
             position: relative; 
             display: inline-block; 
         }
-        .tm { 
-            font-size: 0.5rem; /* Mycket mindre TM */
-            position: absolute; 
-            top: 15px; 
-            right: -18px; 
-            color: #ffffff; /* Vitt TM */
-            font-weight: 400; 
-            text-transform: lowercase;
+        
+        /* PROFFSIGT TM */
+        .tm-symbol { 
+            font-size: 0.8rem; 
+            vertical-align: super;
+            color: #ffffff;
+            font-weight: 400;
+            margin-left: 5px;
+            opacity: 0.8;
         }
+
         .tagline { 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             color: var(--text-dim); 
             letter-spacing: 2px; 
             margin-top: 10px; 
             text-transform: uppercase; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
-        .flag-large { font-size: 1.4rem; } /* Större flagga till vänster */
+        .mini-flag { font-size: 0.9rem; margin-right: 5px; vertical-align: middle; }
 
         /* PRODUCT IMAGE */
         .racket-handle-container {
@@ -87,7 +89,7 @@
             display: block;
         }
 
-        /* WAITLIST SECTION (Flyttad upp) */
+        /* WAITLIST SECTION */
         .waitlist-section { 
             margin: 20px 0 40px; 
             background: #0a0a0a;
@@ -118,7 +120,7 @@
         .feature-item h3 { font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
         .feature-item p { font-size: 0.65rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
 
-        /* STOCKHOLM EDITION CARD */
+        /* STOCKHOLM EDITION CARD MED BYGGNADER */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -126,6 +128,15 @@
             margin: 20px 0;
             text-align: left;
             border: 1px solid #151515;
+            position: relative;
+        }
+        .stockholm-line-art {
+            height: 60px;
+            width: 100%;
+            margin-bottom: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.5' stroke-opacity='0.3' d='M5,40 L5,25 L10,25 L10,15 L15,15 L15,25 L20,25 L20,40 M25,40 L25,10 L30,5 L35,10 L35,40 M40,40 L40,20 L50,20 L50,10 L55,10 L55,20 L65,20 L65,40 M70,40 L70,15 L75,15 L75,5 L80,5 L80,15 L85,15 L85,40 M90,40 L90,20 L95,20 L95,40'/%3E%3C/svg%3E");
         }
         .edition-card h2 { font-size: 1rem; letter-spacing: 2px; margin: 0; font-weight: 900; }
         .edition-card p { font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
@@ -143,15 +154,12 @@
 <body>
 
 <div class="container">
-    <div class="lang-selector">
-        <span title="Svenska">🇸🇪</span>
-        <span title="English">🇬🇧</span>
-    </div>
+    <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">🇬🇧</div>
 
     <header class="header">
-        <div class="main-logo">SILVE<span class="tm">tm</span></div>
+        <div class="main-logo">SILVE<span class="tm-symbol">™</span></div>
         <p class="tagline">
-            <span class="flag-large">🇸🇪</span> PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM
+            <span class="mini-flag">🇸🇪</span> <span id="taglineText">PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM</span>
         </p>
     </header>
 
@@ -160,48 +168,119 @@
     </div>
 
     <section class="waitlist-section">
-        <h2 style="font-weight: 900; margin-bottom: 8px; font-size: 1.2rem;">Join the waitlist</h2>
-        <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.8rem;">Be the first to know when we launch.</p>
+        <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 8px; font-size: 1.2rem;">Gå med i väntelistan</h2>
+        <p id="waitlistSub" style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.8rem;">Var först med att veta när vi lanserar.</p>
         
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">JOIN THE CLUB</button>
+            <input type="email" name="email" id="emailPlaceholder" placeholder="Ange din e-post" required>
+            <button type="submit" id="buttonText">GÅ MED</button>
         </form>
     </section>
 
     <div class="features-grid">
         <div class="feature-item">
             <span class="feature-icon">💧</span>
-            <h3>Sweat Resistant</h3>
-            <p>Advanced surface keeps you locked in.</p>
+            <h3 id="feat1Title">Svettålig</h3>
+            <p id="feat1Sub">Avancerad yta som håller dig fokuserad.</p>
         </div>
         <div class="feature-item">
             <span class="feature-icon">📚</span>
-            <h3>Long Lasting</h3>
-            <p>Durable materials that maintain grip.</p>
+            <h3 id="feat2Title">Långvarig</h3>
+            <p id="feat2Sub">Slitstarka material som behåller greppet.</p>
         </div>
         <div class="feature-item">
             <span class="feature-icon">🎯</span>
-            <h3>Max Control</h3>
-            <p>Perfect thickness for precision shots.</p>
+            <h3 id="feat3Title">Max kontroll</h3>
+            <p id="feat3Sub">Perfekt tjocklek för precisionsslag.</p>
         </div>
         <div class="feature-item">
             <span class="feature-icon">🛡️</span>
-            <h3>Elite Performance</h3>
-            <p>Tested and built for competitive play.</p>
+            <h3 id="feat4Title">Elitprestanda</h3>
+            <p id="feat4Sub">Testad och byggd för tävlingsspel.</p>
         </div>
     </div>
 
     <div class="edition-card">
-        <h2>STOCKHOLM EDITION</h2>
-        <p>Crafted for elite performance, designed for style. <br><br><strong>LAUNCHING IN SUMMER 2026.</strong></p>
+        <div class="stockholm-line-art"></div>
+        <h2 id="editionTitle">STOCKHOLM EDITION</h2>
+        <p id="editionText">Skapad för elitprestanda, designad för stil. <br><br><strong id="launchDate">LANSERING SOMMAREN 2026.</strong></p>
     </div>
 
     <footer class="footer">
-        SILVE SPORTS tm<br>
+        SILVE SPORTS ™<br>
         © 2026 STOCKHOLM, SWEDEN
     </footer>
 </div>
+
+<script>
+    let currentLang = 'sv';
+
+    function toggleLanguage() {
+        const btn = document.getElementById('langToggle');
+        
+        if (currentLang === 'sv') {
+            // Byt till EN
+            currentLang = 'en';
+            btn.innerHTML = '🇸🇪'; // Knappen visar svenska flaggan nu
+            updateText('en');
+        } else {
+            // Byt till SV
+            currentLang = 'sv';
+            btn.innerHTML = '🇬🇧'; // Knappen visar brittiska flaggan nu
+            updateText('sv');
+        }
+    }
+
+    function updateText(lang) {
+        const texts = {
+            sv: {
+                tagline: "PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM",
+                waitlistTitle: "Gå med i väntelistan",
+                waitlistSub: "Var först med att veta när vi lanserar.",
+                emailPlaceholder: "Ange din e-post",
+                buttonText: "GÅ MED",
+                feat1Title: "SVETTÅLIG", feat1Sub: "Avancerad yta som håller dig fokuserad.",
+                feat2Title: "LÅNGVARIG", feat2Sub: "Slitstarka material som behåller greppet.",
+                feat3Title: "MAX KONTROLL", feat3Sub: "Perfekt tjocklek för precisionsslag.",
+                feat4Title: "ELITPRESTANDA", feat4Sub: "Testad och byggd för tävlingsspel.",
+                editionTitle: "STOCKHOLM EDITION",
+                editionText: "Skapad för elitprestanda, designad för stil.",
+                launchDate: "LANSERING SOMMAREN 2026."
+            },
+            en: {
+                tagline: "PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM",
+                waitlistTitle: "Join the waitlist",
+                waitlistSub: "Be the first to know when we launch.",
+                emailPlaceholder: "Enter your email",
+                buttonText: "JOIN THE CLUB",
+                feat1Title: "SWEAT RESISTANT", feat1Sub: "Advanced surface keeps you locked in.",
+                feat2Title: "LONG LASTING", feat2Sub: "Durable materials that maintain grip.",
+                feat3Title: "MAX CONTROL", feat3Sub: "Perfect thickness for precision shots.",
+                feat4Title: "ELITE PERFORMANCE", feat4Sub: "Tested and built for competitive play.",
+                editionTitle: "STOCKHOLM EDITION",
+                editionText: "Crafted for elite performance, designed for style.",
+                launchDate: "LAUNCHING IN SUMMER 2026."
+            }
+        };
+
+        const t = texts[lang];
+        document.getElementById('taglineText').innerText = t.tagline;
+        document.getElementById('waitlistTitle').innerText = t.waitlistTitle;
+        document.getElementById('waitlistSub').innerText = t.waitlistSub;
+        document.getElementById('emailPlaceholder').placeholder = t.emailPlaceholder;
+        document.getElementById('buttonText').innerText = t.buttonText;
+        document.getElementById('feat1Title').innerText = t.feat1Title;
+        document.getElementById('feat1Sub').innerText = t.feat1Sub;
+        document.getElementById('feat2Title').innerText = t.feat2Title;
+        document.getElementById('feat2Sub').innerText = t.feat2Sub;
+        document.getElementById('feat3Title').innerText = t.feat3Title;
+        document.getElementById('feat3Sub').innerText = t.feat3Sub;
+        document.getElementById('feat4Title').innerText = t.feat4Title;
+        document.getElementById('feat4Sub').innerText = t.feat4Sub;
+        document.getElementById('editionTitle').innerText = t.editionTitle;
+        document.getElementById('editionText').innerHTML = t.editionText + `<br><br><strong>${t.launchDate}</strong>`;
+    }
+</script>
 
 </body>
 </html>
