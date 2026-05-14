@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        * { box-sizing: border-box; } /* Fixar så inget sticker ut utanför boxar */
+        * { box-sizing: border-box; }
 
         :root {
             --bg-dark: #000000;
@@ -26,33 +26,35 @@
             margin: 0; padding: 0;
             background-color: var(--bg-dark);
             color: #ffffff;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             text-align: center;
-            overflow-x: hidden; /* Förhindrar scroll i sidled på mobil */
+            overflow-x: hidden;
         }
 
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* SPRÅKKNAPP - Förstärkt för äldre skärmar */
+        /* SPRÅKKNAPP */
         .lang-toggle {
             position: absolute;
             top: 20px;
             right: 20px;
             cursor: pointer;
-            font-size: 1.2rem;
-            background: #1a1a1a; /* Mörkare bakgrund för synlighet */
-            padding: 8px 12px;
+            background: #1a1a1a;
+            padding: 6px 10px;
             border-radius: 8px;
             border: 1px solid #333;
             z-index: 100;
-            color: #fff;
+            display: flex;
+            align-items: center;
         }
+        
+        .lang-toggle img { width: 24px; height: auto; display: block; }
 
         /* HEADER & LOGO */
         .header { padding: 50px 0 20px; }
         
         .main-logo { 
-            font-size: clamp(2rem, 8vw, 3rem); /* Skalar för mobil */
+            font-size: clamp(2.2rem, 8vw, 3rem);
             font-weight: 900; 
             letter-spacing: 12px; 
             text-transform: uppercase; 
@@ -82,7 +84,6 @@
             text-transform: uppercase;
             display: block;
             margin-bottom: 10px;
-            padding: 0 10px;
         }
 
         .tagline-sub {
@@ -96,12 +97,7 @@
             gap: 8px;
         }
         
-        /* Säkerställer att flaggan har en storlek */
-        .mini-flag { 
-            font-size: 1rem; 
-            display: inline-block;
-            min-width: 20px;
-        }
+        .mini-flag-img { width: 16px; height: auto; border-radius: 2px; }
 
         /* PRODUCT IMAGE */
         .racket-handle-container {
@@ -110,14 +106,9 @@
             display: flex;
             justify-content: center;
         }
-        .product-image {
-            max-width: 200px; 
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .product-image { max-width: 200px; width: 100%; height: auto; }
 
-        /* WAITLIST SECTION - MOBILOPTIMERAD */
+        /* WAITLIST SECTION */
         .waitlist-section { 
             margin: 20px 0 40px; 
             background: #0a0a0a;
@@ -132,73 +123,72 @@
             border-radius: 16px; 
             border: 1px solid #222; 
             display: flex;
-            flex-direction: row; /* Håller dem på samma rad */
             align-items: center;
-            width: 100%;
         }
         
         .form-container input {
             flex: 1; 
-            min-width: 0; /* Hindrar input från att trycka ut knappen */
+            min-width: 0;
             background: transparent; 
             border: none; 
             padding: 12px; 
             color: #fff; 
             outline: none; 
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         
         .form-container button {
-            background: #fff; 
-            color: #000; 
-            border: none; 
-            padding: 10px 15px; 
-            border-radius: 12px; 
-            font-weight: 900; 
-            cursor: pointer; 
-            font-size: 0.7rem;
-            transition: 0.3s;
-            white-space: nowrap; /* Hindrar texten från att radbrytas */
-            flex-shrink: 0; /* Tvingar knappen att behålla sin storlek */
+            background: #fff; color: #000; border: none; padding: 10px 18px; border-radius: 12px; 
+            font-weight: 900; cursor: pointer; font-size: 0.75rem; transition: 0.3s;
+            white-space: nowrap; flex-shrink: 0; margin-right: 2px;
         }
 
-        /* FEATURES & CARDS */
+        /* FEATURES */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin: 30px 0;
         }
-        .feature-item h3 { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; margin: 0; }
-        .feature-item p { font-size: 0.6rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
+        .feature-item h3 { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; margin: 0; }
+        .feature-item p { font-size: 0.65rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
 
+        /* STOCKHOLM EDITION CARD MED BYGGNADER */
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
-            padding: 25px;
+            padding: 30px;
             margin: 20px 0;
             text-align: left;
             border: 1px solid #151515;
+            position: relative;
+            overflow: hidden;
         }
-        .edition-card h2 { font-size: 0.85rem; font-weight: 900; }
-        .edition-card p { font-size: 0.7rem; color: var(--text-dim); line-height: 1.6; }
+        
+        .stockholm-skyline {
+            height: 60px;
+            width: 100%;
+            margin-bottom: 15px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /* Ljusare vita linjer (0.6 opacitet istället för 0.3) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.6' stroke-opacity='0.6' d='M5,40 L5,25 L10,25 L10,15 L15,15 L15,25 L20,25 L20,40 M25,40 L25,10 L30,5 L35,10 L35,40 M40,40 L40,20 L50,20 L50,10 L55,10 L55,20 L65,20 L65,40 M70,40 L70,15 L75,15 L75,5 L80,5 L80,15 L85,15 L85,40 M90,40 L90,20 L95,20 L95,40'/%3E%3C/svg%3E");
+        }
+
+        .edition-card h2 { font-size: 0.9rem; font-weight: 900; position: relative; z-index: 2; }
+        .edition-card p { font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; position: relative; z-index: 2; }
 
         .footer { padding: 40px 0 20px; font-size: 0.65rem; color: var(--text-light); letter-spacing: 2px; }
 
-        /* Mobil-fix för knappen om skärmen är extremt smal */
-        @media (max-width: 360px) {
-            .form-container button {
-                padding: 10px 10px;
-                font-size: 0.65rem;
-            }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">🇬🇧</div>
+    <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <img id="toggleImg" src="https://flagcdn.com/w40/gb.png" alt="English">
+    </div>
 
     <header class="header">
         <div class="main-logo">S I L V E<span class="tm-symbol">™</span></div>
@@ -206,7 +196,8 @@
         <div class="tagline-container">
             <span class="tagline-main" id="taglineGrips">PREMIUM BADMINTON GRIPS</span>
             <span class="tagline-sub">
-                <span class="mini-flag">🇸🇪</span> <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
+                <img src="https://flagcdn.com/w40/se.png" class="mini-flag-img" alt="Sweden">
+                <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
             </span>
         </div>
     </header>
@@ -227,28 +218,25 @@
 
     <div class="features-grid">
         <div class="feature-item">
-            <span class="feature-icon">💧</span>
             <h3 id="feat1Title">Svettålig</h3>
             <p id="feat1Sub">Avancerad yta som håller dig fokuserad.</p>
         </div>
         <div class="feature-item">
-            <span class="feature-icon">📚</span>
             <h3 id="feat2Title">Långvarig</h3>
             <p id="feat2Sub">Slitstarka material som behåller greppet.</p>
         </div>
         <div class="feature-item">
-            <span class="feature-icon">🎯</span>
             <h3 id="feat3Title">Max kontroll</h3>
             <p id="feat3Sub">Perfekt tjocklek för precisionsslag.</p>
         </div>
         <div class="feature-item">
-            <span class="feature-icon">🛡️</span>
             <h3 id="feat4Title">Elitprestanda</h3>
             <p id="feat4Sub">Testad och byggd för tävlingsspel.</p>
         </div>
     </div>
 
     <div class="edition-card">
+        <div class="stockholm-skyline"></div>
         <h2 id="editionTitle">STOCKHOLM EDITION</h2>
         <p id="editionText">Skapad för elitprestanda, designad för stil. <br><br><strong id="launchDate">LANSERING SOMMAREN 2026.</strong></p>
     </div>
@@ -263,14 +251,14 @@
     let currentLang = 'sv';
 
     function toggleLanguage() {
-        const btn = document.getElementById('langToggle');
+        const toggleImg = document.getElementById('toggleImg');
         if (currentLang === 'sv') {
             currentLang = 'en';
-            btn.innerHTML = '🇸🇪';
+            toggleImg.src = 'https://flagcdn.com/w40/se.png';
             updateText('en');
         } else {
             currentLang = 'sv';
-            btn.innerHTML = '🇬🇧';
+            toggleImg.src = 'https://flagcdn.com/w40/gb.png';
             updateText('sv');
         }
     }
