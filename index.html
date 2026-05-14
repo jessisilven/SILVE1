@@ -42,9 +42,10 @@
             border-radius: 8px;
             transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
         }
 
-        /* LOGO MED TRADEMARK PRECIS OVANFÖR */
+        /* LOGO MED TRADEMARK */
         .header { padding: 40px 0 10px; }
         .main-logo { 
             font-size: 3.5rem; 
@@ -59,7 +60,7 @@
         .tm-symbol { 
             font-size: 0.7rem; 
             position: absolute;
-            top: 8px; /* Justerat för att ligga precis ovanför E:et */
+            top: 8px; 
             right: -12px;
             color: #ffffff;
             font-weight: 400;
@@ -75,14 +76,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 6px;
         }
         
-        /* FÖRMINSKAD FLAGGA */
-        .mini-flag { 
-            font-size: 0.65rem; 
-            margin-right: 8px; 
-            opacity: 0.8;
-        }
+        .mini-flag-inline { font-size: 0.8rem; margin: 0 4px; }
 
         /* PRODUCT IMAGE */
         .racket-handle-container {
@@ -167,7 +164,9 @@
     <header class="header">
         <div class="main-logo">SILVE<span class="tm-symbol">™</span></div>
         <p class="tagline">
-            <span class="mini-flag">🇸🇪</span> <span id="taglineText">PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM</span>
+            <span id="taglineGrips">PREMIUM BADMINTON GRIPS</span> 
+            <span class="mini-flag-inline">🇸🇪</span> 
+            <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
         </p>
     </header>
 
@@ -239,7 +238,8 @@
     function updateText(lang) {
         const texts = {
             sv: {
-                tagline: "PREMIUM BADMINTON GRIPS + DESIGNED IN STOCKHOLM",
+                grips: "PREMIUM BADMINTON GRIPS",
+                city: "DESIGNED IN STOCKHOLM",
                 waitlistTitle: "Gå med i väntelistan",
                 waitlistSub: "Var först med att veta när vi lanserar.",
                 emailPlaceholder: "Ange din e-post",
@@ -247,4 +247,47 @@
                 feat1Title: "SVETTÅLIG", feat1Sub: "Avancerad yta som håller dig fokuserad.",
                 feat2Title: "LÅNGVARIG", feat2Sub: "Slitstarka material som behåller greppet.",
                 feat3Title: "MAX KONTROLL", feat3Sub: "Perfekt tjocklek för precisionsslag.",
-                feat4Title: "
+                feat4Title: "ELITPRESTANDA", feat4Sub: "Testad och byggd för tävlingsspel.",
+                editionTitle: "STOCKHOLM EDITION",
+                editionText: "Skapad för elitprestanda, designad för stil.",
+                launchDate: "LANSERING SOMMAREN 2026."
+            },
+            en: {
+                grips: "PREMIUM BADMINTON GRIPS",
+                city: "DESIGNED IN STOCKHOLM",
+                waitlistTitle: "Join the waitlist",
+                waitlistSub: "Be the first to know when we launch.",
+                emailPlaceholder: "Enter your email",
+                buttonText: "JOIN THE CLUB",
+                feat1Title: "SWEAT RESISTANT", feat1Sub: "Advanced surface keeps you locked in.",
+                feat2Title: "LONG LASTING", feat2Sub: "Durable materials that maintain grip.",
+                feat3Title: "MAX CONTROL", feat3Sub: "Perfect thickness for precision shots.",
+                feat4Title: "ELITE PERFORMANCE", feat4Sub: "Tested and built for competitive play.",
+                editionTitle: "STOCKHOLM EDITION",
+                editionText: "Crafted for elite performance, designed for style.",
+                launchDate: "LAUNCHING IN SUMMER 2026."
+            }
+        };
+
+        const t = texts[lang];
+        document.getElementById('taglineGrips').innerText = t.grips;
+        document.getElementById('taglineCity').innerText = t.city;
+        document.getElementById('waitlistTitle').innerText = t.waitlistTitle;
+        document.getElementById('waitlistSub').innerText = t.waitlistSub;
+        document.getElementById('emailPlaceholder').placeholder = t.emailPlaceholder;
+        document.getElementById('buttonText').innerText = t.buttonText;
+        document.getElementById('feat1Title').innerText = t.feat1Title;
+        document.getElementById('feat1Sub').innerText = t.feat1Sub;
+        document.getElementById('feat2Title').innerText = t.feat2Title;
+        document.getElementById('feat2Sub').innerText = t.feat2Sub;
+        document.getElementById('feat3Title').innerText = t.feat3Title;
+        document.getElementById('feat3Sub').innerText = t.feat3Sub;
+        document.getElementById('feat4Title').innerText = t.feat4Title;
+        document.getElementById('feat4Sub').innerText = t.feat4Sub;
+        document.getElementById('editionTitle').innerText = t.editionTitle;
+        document.getElementById('editionText').innerHTML = t.editionText + `<br><br><strong>${t.launchDate}</strong>`;
+    }
+</script>
+
+</body>
+</html>
