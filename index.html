@@ -13,13 +13,10 @@
     
     <style>
         :root {
-            --glacier-bottom: #004AAD;
-            --glacier-mid: #5DE0E6;
-            --berry-bottom: #AD138B;
-            --berry-mid: #EB8FD6;
             --bg-dark: #000000;
             --card-bg: #0a0a0a;
             --text-dim: #888;
+            --text-light: #eee; /* Ljusare text för footern */
         }
 
         body {
@@ -34,36 +31,48 @@
 
         /* LOGO */
         .header { padding: 40px 0 20px; }
-        .main-logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; margin: 0; position: relative; display: inline-block; }
-        .tm { font-size: 0.9rem; position: absolute; top: 8px; right: -25px; color: #444; font-weight: 400; }
-        .tagline { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; margin-top: 15px; text-transform: uppercase; }
+        .main-logo { 
+            font-size: 3.5rem; /* Gjort rubriken större */
+            font-weight: 900; 
+            letter-spacing: 8px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            position: relative; 
+            display: inline-block; 
+        }
+        .tm { 
+            font-size: 1rem; 
+            position: absolute; 
+            top: 10px; 
+            right: -30px; 
+            color: #ffffff; /* Gjort TM-märket ljusare */
+            font-weight: 400; 
+            text-transform: lowercase; /* tm i små bokstäver */
+            opacity: 0.9;
+        }
+        .tagline { 
+            font-size: 0.9rem; /* Gjort texten lite större */
+            color: var(--text-dim); 
+            letter-spacing: 2px; 
+            margin-top: 15px; 
+            text-transform: uppercase; 
+        }
 
-        /* RACKET VISUAL */
+        /* RACKET IMAGE (Ersätter rektangeln) */
         .racket-handle-container {
-            height: 350px;
+            width: 100%;
+            margin: 40px 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            margin: 20px 0;
         }
 
-        .racket-cone {
-            width: 40px; height: 35px;
-            background: #151515;
-            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
-            margin-bottom: -1px;
+        .product-image {
+            max-width: 280px; /* Justera storleken på bilden här */
+            height: auto;
+            display: block;
         }
 
-        .grip-visual {
-            width: 105px; height: 280px;
-            background: linear-gradient(to top, var(--glacier-bottom) 0%, var(--glacier-mid) 25%, #ffffff 65%);
-            border-radius: 2px 2px 4px 4px;
-            box-shadow: inset -15px 0 30px rgba(0,0,0,0.3);
-            transition: all 1.5s ease-in-out;
-        }
-
-        /* TEXT SECTIONS FOR THE GRIP */
+        /* TEXT SECTIONS */
         .main-claim { font-size: 1.4rem; font-weight: 900; margin: 40px 0 10px; }
         .main-sub { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 40px; }
 
@@ -114,12 +123,15 @@
         .form-container button {
             background: #fff; color: #000; border: none; padding: 0 25px; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.3s;
         }
-        .form-container button:hover { background: var(--glacier-mid); }
+        .form-container button:hover { background: #5DE0E6; }
 
-        .footer { padding: 80px 0 30px; font-size: 0.65rem; color: #333; letter-spacing: 2px; text-transform: uppercase; }
-
-        .berry-active {
-            background: linear-gradient(to top, var(--berry-bottom) 0%, var(--berry-mid) 25%, #ffffff 65%) !important;
+        /* FOOTER */
+        .footer { 
+            padding: 80px 0 30px; 
+            font-size: 0.8rem; 
+            color: var(--text-light); /* Ljusare text så det syns ordentligt */
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
         }
     </style>
 </head>
@@ -127,13 +139,12 @@
 
 <div class="container">
     <header class="header">
-        <div class="main-logo">SILVE<span class="tm">™</span></div>
-        <p class="tagline">PREMIUM BADMINTON GRIPS<br>+ DESIGNED IN STOCKHOLM</p>
+        <div class="main-logo">SILVE<span class="tm">tm</span></div>
+        <p class="tagline">PREMIUM BADMINTON GRIPS<br>+ DESIGNED IN STOCKHOLM 🇸🇪</p>
     </header>
 
     <div class="racket-handle-container">
-        <div class="racket-cone"></div>
-        <div class="grip-visual" id="grip"></div>
+        <img src="lindor.png" alt="SILVE Badminton Grips" class="product-image">
     </div>
 
     <h2 class="main-claim">Built for control. Made to last.</h2>
@@ -165,7 +176,7 @@
     <div class="edition-card">
         <div class="stockholm-line-art"></div>
         <h2>STOCKHOLM EDITION</h2>
-        <p>A limited drop inspired by the architectural aesthetics of our hometown. Crafted for elite performance, designed for style. <br><br><strong>LAUNCHING JUNE 2026.</strong></p>
+        <p>Crafted for elite performance, designed for style. <br><br><strong>LAUNCHING IN SUMMER 2026.</strong></p>
     </div>
 
     <section class="waitlist-section">
@@ -179,17 +190,10 @@
     </section>
 
     <footer class="footer">
-        SILVE SPORTS AB<br>
+        SILVE SPORTS tm<br>
         © 2026 STOCKHOLM, SWEDEN
     </footer>
 </div>
-
-<script>
-    const grip = document.getElementById('grip');
-    setInterval(() => {
-        grip.classList.toggle('berry-active');
-    }, 3000);
-</script>
 
 </body>
 </html>
