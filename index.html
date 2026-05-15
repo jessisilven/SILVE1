@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 
@@ -19,17 +19,18 @@
         :root {
             --bg-dark: #000000;
             --card-bg: #0a0a0a;
-            --text-dim: #888;
-            --text-light: #eee;
+            --text-dim: #a0a0a0; /* Något ljusare för bättre läsbarhet */
+            --text-light: #ffffff;
         }
 
         body {
             margin: 0; padding: 0;
             background-color: var(--bg-dark);
-            color: #ffffff;
+            color: var(--text-light);
             font-family: 'Inter', sans-serif;
             text-align: center;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         img.emoji {
@@ -39,27 +40,27 @@
             vertical-align: -0.1em;
         }
 
-        .container { max-width: 500px; margin: 0 auto; padding: 10px 15px; position: relative; }
+        .container { max-width: 500px; margin: 0 auto; padding: 10px 20px; position: relative; }
 
         .lang-toggle {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 15px;
+            right: 20px;
             cursor: pointer;
             background: #1a1a1a;
-            padding: 4px 8px;
+            padding: 6px 12px;
             border-radius: 8px;
             border: 1px solid #333;
             z-index: 100;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
-        .header { padding: 25px 0 10px; }
+        .header { padding: 40px 0 15px; }
         
         .main-logo { 
-            font-size: clamp(2rem, 7vw, 2.8rem);
+            font-size: clamp(2.2rem, 8vw, 3rem);
             font-weight: 900; 
-            letter-spacing: 10px; 
+            letter-spacing: 12px; 
             text-transform: uppercase; 
             margin: 0; 
             position: relative; 
@@ -68,39 +69,39 @@
         }
         
         .tm-symbol { 
-            font-size: 0.5rem; 
+            font-size: 0.6rem; 
             position: absolute;
-            top: 0px; 
-            right: -6px; 
+            top: 2px; 
+            right: -8px; 
             color: #ffffff;
             font-weight: 400;
             letter-spacing: normal;
         }
 
         .tagline-main {
-            font-size: 0.65rem;
-            font-weight: 400; 
-            letter-spacing: 3px; 
+            font-size: 0.75rem; /* Större */
+            font-weight: 600; 
+            letter-spacing: 4px; 
             color: var(--text-dim); 
             text-transform: uppercase;
             display: block;
-            margin: 8px 0 5px;
+            margin: 12px 0 8px;
         }
 
         .tagline-sub {
-            font-size: 0.55rem; 
+            font-size: 0.65rem; /* Större */
             font-weight: 400;
             color: var(--text-dim);
             text-transform: uppercase;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .racket-handle-container {
             width: 100%;
-            margin: 5px 0 15px;
+            margin: 10px 0 20px;
             display: flex;
             justify-content: center;
         }
@@ -113,17 +114,17 @@
         }
 
         .waitlist-section { 
-            margin: 0 0 25px; 
+            margin: 0 0 30px; 
             background: #0a0a0a;
-            padding: 15px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 24px;
             border: 1px solid #151515;
         }
         
         .form-container {
             background: #111; 
-            padding: 3px; 
-            border-radius: 14px; 
+            padding: 4px; 
+            border-radius: 16px; 
             border: 1px solid #222; 
             display: flex;
             align-items: center;
@@ -135,33 +136,33 @@
             min-width: 0;
             background: transparent; 
             border: none; 
-            padding: 10px; 
+            padding: 12px; 
             color: #fff; 
             outline: none; 
-            font-size: 0.8rem;
+            font-size: 0.9rem; /* Tydligare input */
         }
         
         .form-container button {
-            background: #fff; color: #000; border: none; padding: 8px 15px; border-radius: 10px; 
-            font-weight: 900; cursor: pointer; font-size: 0.7rem; transition: 0.3s;
+            background: #fff; color: #000; border: none; padding: 12px 20px; border-radius: 12px; 
+            font-weight: 900; cursor: pointer; font-size: 0.8rem; transition: 0.3s;
             white-space: nowrap; flex-shrink: 0;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 20px 0;
+            gap: 20px;
+            margin: 30px 0;
         }
-        .feature-icon { display: block; font-size: 1.3rem; margin-bottom: 3px; }
-        .feature-item h3 { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; margin: 0; }
-        .feature-item p { font-size: 0.6rem; color: var(--text-dim); margin-top: 3px; line-height: 1.3; }
+        .feature-icon { display: block; font-size: 1.6rem; margin-bottom: 8px; }
+        .feature-item h3 { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
+        .feature-item p { font-size: 0.75rem; color: var(--text-dim); margin-top: 6px; line-height: 1.5; }
 
         .edition-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 15px 0;
+            border-radius: 24px;
+            padding: 25px;
+            margin: 20px 0;
             text-align: left;
             border: 1px solid #151515;
             position: relative;
@@ -169,15 +170,18 @@
         }
         
         .stockholm-skyline {
-            height: 50px;
+            height: 60px;
             width: 100%;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             background-repeat: no-repeat;
             background-size: contain;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.6' stroke-opacity='0.9' d='M2,40 L2,28 L8,28 L8,40 M10,40 L10,20 L18,20 L18,40 M22,40 L22,15 L26,15 L26,5 L30,5 L30,15 L34,15 L34,40 M40,40 L40,10 L50,10 L50,40 M55,40 L55,25 L65,25 L65,15 L70,15 L70,40 M75,40 L75,10 L80,2 L85,10 L85,40 M92,40 L92,18 L105,18 L105,40 M110,40 L110,22 L118,22 L118,40'/%3E%3C/svg%3E");
         }
 
-        .footer { padding: 20px 0; font-size: 0.55rem; color: var(--text-light); letter-spacing: 2px; }
+        .edition-card h2 { font-size: 1.1rem; font-weight: 900; margin-bottom: 10px; }
+        .edition-card p { font-size: 0.85rem; line-height: 1.6; }
+
+        .footer { padding: 40px 0; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; }
 
     </style>
 </head>
@@ -201,7 +205,7 @@
     </div>
 
     <section class="waitlist-section">
-        <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 5px; font-size: 1rem;">Gå med i väntelistan</h2>
+        <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 10px; font-size: 1.2rem;">Gå med i väntelistan</h2>
         <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
             <input type="email" name="email" id="emailPlaceholder" placeholder="Ange din e-post" required>
             <button type="submit" id="buttonText">GÅ MED</button>
@@ -233,91 +237,5 @@
 
     <div class="edition-card">
         <div class="stockholm-skyline"></div>
-        <h2 id="editionTitle" style="font-size: 1rem; margin-bottom: 8px;">STOCKHOLM EDITION</h2>
-        <p id="editionText" style="font-size: 0.75rem;">Skapad för elitprestanda, designad för stil. <br><br><strong id="launchDate">LANSERING SOMMAREN 2026.</strong></p>
-    </div>
-
-    <footer class="footer">
-        S I L V E ™<br>
-        © 2026 STOCKHOLM, SWEDEN
-    </footer>
-</div>
-
-<script>
-    window.onload = function() {
-        if (typeof twemoji !== 'undefined') {
-            twemoji.parse(document.body);
-        }
-    }
-
-    let currentLang = 'sv';
-
-    function toggleLanguage() {
-        const btn = document.getElementById('langToggle');
-        if (currentLang === 'sv') {
-            currentLang = 'en';
-            btn.innerHTML = '🇸🇪';
-            updateText('en');
-        } else {
-            currentLang = 'sv';
-            btn.innerHTML = '🇬🇧';
-            updateText('sv');
-        }
-        if (typeof twemoji !== 'undefined') {
-            twemoji.parse(document.body);
-        }
-    }
-
-    function updateText(lang) {
-        const texts = {
-            sv: {
-                grips: "PREMIUM BADMINTON GRIPS",
-                city: "DESIGNED IN STOCKHOLM",
-                waitlistTitle: "Gå med i väntelistan",
-                emailPlaceholder: "Ange din e-post",
-                buttonText: "GÅ MED",
-                feat1Title: "SVETTÅLIG", feat1Sub: "Avancerad yta som håller dig fokuserad.",
-                feat2Title: "LÅNGVARIG", feat2Sub: "Slitstarka material som behåller greppet.",
-                feat3Title: "MAX KONTROLL", feat3Sub: "Perfekt tjocklek för precisionsslag.",
-                feat4Title: "ELITPRESTANDA", feat4Sub: "Testad och byggd för tävlingsspel.",
-                editionTitle: "STOCKHOLM EDITION",
-                editionText: "Skapad för elitprestanda, designad för stil.",
-                launchDate: "LANSERING SOMMAREN 2026."
-            },
-            en: {
-                grips: "PREMIUM BADMINTON GRIPS",
-                city: "DESIGNED IN STOCKHOLM",
-                waitlistTitle: "Join the waitlist",
-                emailPlaceholder: "Enter your email",
-                buttonText: "JOIN THE CLUB",
-                feat1Title: "SWEAT RESISTANT", feat1Sub: "Advanced surface keeps you locked in.",
-                feat2Title: "LONG LASTING", feat2Sub: "Durable materials that maintain grip.",
-                feat3Title: "MAX CONTROL", feat3Sub: "Perfect thickness for precision shots.",
-                feat4Title: "ELITE PERFORMANCE", feat4Sub: "Tested and built for competitive play.",
-                editionTitle: "STOCKHOLM EDITION",
-                editionText: "Crafted for elite performance, designed for style.",
-                launchDate: "LAUNCHING SUMMER 2026."
-            }
-        };
-
-        const t = texts[lang];
-        document.getElementById('taglineGrips').innerText = t.grips;
-        document.getElementById('taglineCity').innerText = t.city;
-        document.getElementById('waitlistTitle').innerText = t.waitlistTitle;
-        document.getElementById('emailPlaceholder').placeholder = t.emailPlaceholder;
-        document.getElementById('buttonText').innerText = t.buttonText;
-        document.getElementById('feat1Title').innerText = t.feat1Title;
-        document.getElementById('feat1Sub').innerText = t.feat1Sub;
-        document.getElementById('feat2Title').innerText = t.feat2Title;
-        document.getElementById('feat2Sub').innerText = t.feat2Sub;
-        document.getElementById('feat3Title').innerText = t.feat3Title;
-        document.getElementById('feat3Sub').innerText = t.feat3Sub;
-        document.getElementById('feat4Title').innerText = t.feat4Title;
-        document.getElementById('feat4Sub').innerText = t.feat4Sub;
-        document.getElementById('editionTitle').innerText = t.editionTitle;
-        document.getElementById('editionText').innerHTML = t.editionText + `<br><br><strong id="launchDate">${t.launchDate}</strong>`;
-    }
-</script>
-
-</body>
-</html>
+        <h2 id="editionTitle">STOCKHOLM EDITION</h2>
+        <p id="editionText">Skapad för elitprestanda, designad för stil. <br>
