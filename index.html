@@ -39,12 +39,12 @@
             vertical-align: -0.1em;
         }
 
-        .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
+        .container { max-width: 500px; margin: 0 auto; padding: 15px; position: relative; }
 
         .lang-toggle {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             cursor: pointer;
             background: #1a1a1a;
             padding: 6px 10px;
@@ -53,7 +53,8 @@
             z-index: 100;
         }
 
-        .header { padding: 50px 0 20px; }
+        /* HEADER - MER KOMPAKT */
+        .header { padding: 35px 0 15px; }
         
         .main-logo { 
             font-size: clamp(2.2rem, 8vw, 3rem);
@@ -77,17 +78,17 @@
         }
 
         .tagline-main {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 400; 
             letter-spacing: 4px; 
             color: var(--text-dim); 
             text-transform: uppercase;
             display: block;
-            margin: 15px 0 10px;
+            margin: 10px 0 8px;
         }
 
         .tagline-sub {
-            font-size: 0.65rem; 
+            font-size: 0.6rem; 
             font-weight: 400;
             color: var(--text-dim);
             text-transform: uppercase;
@@ -97,24 +98,25 @@
             gap: 8px;
         }
 
-        /* PRODUKTBILD - BREDDARE */
+        /* PRODUKTBILD - OPTIMERAD HÖJD */
         .racket-handle-container {
             width: 100%;
-            margin: 10px 0 30px;
+            margin: 5px 0 25px;
             display: flex;
             justify-content: center;
         }
         .product-image { 
-            width: 100%; /* Tar upp hela containerns bredd */
-            max-width: 450px; 
-            height: auto; 
+            width: 100%; 
+            max-height: 320px; /* Begränsar höjden så knappen syns snabbare */
+            object-fit: cover; /* Ser till att bilden inte ser utdragen ut */
             border-radius: 12px;
+            display: block;
         }
 
         .waitlist-section { 
-            margin: 20px 0 40px; 
+            margin: 0 0 35px; 
             background: #0a0a0a;
-            padding: 20px;
+            padding: 18px;
             border-radius: 24px;
             border: 1px solid #151515;
         }
@@ -150,7 +152,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin: 30px 0;
+            margin: 25px 0;
         }
         .feature-icon { display: block; font-size: 1.5rem; margin-bottom: 5px; }
         .feature-item h3 { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; margin: 0; }
@@ -159,7 +161,7 @@
         .edition-card {
             background: var(--card-bg);
             border-radius: 24px;
-            padding: 30px;
+            padding: 25px;
             margin: 20px 0;
             text-align: left;
             border: 1px solid #151515;
@@ -167,17 +169,16 @@
             overflow: hidden;
         }
         
-        /* STOCKHOLM BYGGNADER - MER DETALJERADE */
         .stockholm-skyline {
-            height: 70px;
+            height: 60px;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background-repeat: no-repeat;
             background-size: contain;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cpath fill='none' stroke='white' stroke-width='0.6' stroke-opacity='0.9' d='M2,40 L2,28 L8,28 L8,40 M10,40 L10,20 L18,20 L18,40 M22,40 L22,15 L26,15 L26,5 L30,5 L30,15 L34,15 L34,40 M40,40 L40,10 L50,10 L50,40 M55,40 L55,25 L65,25 L65,15 L70,15 L70,40 M75,40 L75,10 L80,2 L85,10 L85,40 M92,40 L92,18 L105,18 L105,40 M110,40 L110,22 L118,22 L118,40'/%3E%3C/svg%3E");
         }
 
-        .footer { padding: 40px 0 20px; font-size: 0.65rem; color: var(--text-light); letter-spacing: 2px; }
+        .footer { padding: 30px 0 20px; font-size: 0.6rem; color: var(--text-light); letter-spacing: 2px; }
 
     </style>
 </head>
@@ -308,8 +309,6 @@
         document.getElementById('feat4Title').innerText = t.feat4Title;
         document.getElementById('feat4Sub').innerText = t.feat4Sub;
         document.getElementById('editionTitle').innerText = t.editionTitle;
-        
-        // Fix för att översätta brödtexten och lanseringsdatumet i kortet
         document.getElementById('editionText').innerHTML = t.editionText + `<br><br><strong id="launchDate">${t.launchDate}</strong>`;
     }
 </script>
