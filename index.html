@@ -33,7 +33,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Twemoji-styling */
         img.emoji {
             height: 1.2em;
             width: 1.2em;
@@ -43,7 +42,6 @@
 
         .container { max-width: 500px; margin: 0 auto; padding: 10px 20px; position: relative; }
 
-        /* Språkvalsknapp - synlig uppe till höger */
         .lang-toggle {
             position: absolute;
             top: 15px;
@@ -57,26 +55,34 @@
             font-size: 1rem;
         }
 
+        /* HEADER - TIGHTARE POSITIONERING */
         .header { padding: 40px 0 10px; }
         
+        .main-logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2px; /* Minskat avstånd till taglines under */
+        }
+
         .main-logo { 
             font-size: clamp(2.2rem, 8vw, 3rem);
             font-weight: 900; 
             letter-spacing: 12px; 
             text-transform: uppercase; 
             margin: 0; 
-            position: relative; 
-            display: inline-block;
             padding-right: 5px;
+            display: inline-block;
         }
         
+        /* TM-SYMBOL PLACERAD PRECIS OVANFÖR */
         .tm-symbol { 
-            font-size: 0.6rem; 
+            font-size: 0.55rem; 
             position: absolute;
-            top: 2px; 
-            right: -8px; 
-            font-weight: 400;
+            top: -6px; /* Flyttad upp precis ovanför bokstäverna */
+            right: 4px; /* Dragen närmare slutet av ordet */
+            font-weight: 600;
             letter-spacing: normal;
+            color: #ffffff;
         }
 
         .tagline-main {
@@ -86,7 +92,7 @@
             color: var(--text-dim); 
             text-transform: uppercase;
             display: block;
-            margin: 12px 0 8px;
+            margin: 4px 0 4px; /* Mycket tightare marginaler */
         }
 
         .tagline-sub {
@@ -97,6 +103,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            margin-top: 2px;
         }
 
         .product-image { 
@@ -180,7 +187,10 @@
     <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">🇬🇧</div>
 
     <header class="header">
-        <div class="main-logo">S I L V E<span class="tm-symbol">™</span></div>
+        <div class="main-logo-container">
+            <div class="main-logo">S I L V E</div>
+            <span class="tm-symbol">TM</span>
+        </div>
         <span class="tagline-main" id="taglineGrips">PREMIUM BADMINTON GRIPS</span>
         <div class="tagline-sub">
             🇸🇪 <span id="taglineCity">DESIGNED IN STOCKHOLM</span>
@@ -233,7 +243,6 @@
 </div>
 
 <script>
-    // Kör Twemoji direkt
     function runTwemoji() {
         if (typeof twemoji !== 'undefined') {
             twemoji.parse(document.body);
