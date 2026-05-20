@@ -55,13 +55,12 @@
             font-size: 1rem;
         }
 
-        /* HEADER - TIGHTARE POSITIONERING */
         .header { padding: 40px 0 10px; }
         
         .main-logo-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 2px; /* Minskat avstånd till taglines under */
+            margin-bottom: 2px;
         }
 
         .main-logo { 
@@ -74,12 +73,11 @@
             display: inline-block;
         }
         
-        /* TM-SYMBOL PLACERAD PRECIS OVANFÖR */
         .tm-symbol { 
             font-size: 0.55rem; 
             position: absolute;
-            top: -6px; /* Flyttad upp precis ovanför bokstäverna */
-            right: 4px; /* Dragen närmare slutet av ordet */
+            top: -6px; 
+            right: 4px; 
             font-weight: 600;
             letter-spacing: normal;
             color: #ffffff;
@@ -92,7 +90,7 @@
             color: var(--text-dim); 
             text-transform: uppercase;
             display: block;
-            margin: 4px 0 4px; /* Mycket tightare marginaler */
+            margin: 4px 0 4px; 
         }
 
         .tagline-sub {
@@ -179,6 +177,53 @@
 
         .footer { padding: 40px 0; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 2px; }
 
+        /* HELSVART TACK-SKÄRM OVERLAY */
+        .thank-you-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #000000;
+            z-index: 9999;
+            display: none; /* Dold som standard */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .thank-you-content {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .thank-you-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .thank-you-text {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
     </style>
 </head>
 <body>
@@ -201,7 +246,7 @@
 
     <section class="waitlist-section">
         <h2 id="waitlistTitle" style="font-weight: 900; margin-bottom: 10px; font-size: 1.25rem;">Gå med i väntelistan</h2>
-        <form action="https://formspree.io/f/xqenzone" method="POST" class="form-container">
+        <form id="waitlistForm" class="form-container">
             <input type="email" name="email" id="emailPlaceholder" placeholder="Ange din e-post" required>
             <button type="submit" id="buttonText">GÅ MED</button>
         </form>
@@ -242,6 +287,18 @@
     </footer>
 </div>
 
+<div id="thankYouOverlay" class="thank-you-overlay">
+    <div class="thank-you-content">
+        <div class="main-logo-container" style="margin-bottom: 30px;">
+            <div class="main-logo" style="font-size: 2.2rem;">S I L V E</div>
+            <span class="tm-symbol">TM</span>
+        </div>
+        <h2 id="thankYouTitle" class="thank-you-title">Tack för din anmälan!</h2>
+        <p id="thankYouText" class="thank-you-text">Du har lagts till i väntelistan för Stockholm Edition. Vi hör av oss så snart vi lanserar.</p>
+        <button class="back-btn" id="backBtn" onclick="closeThankYou()">Tillbaka</button>
+    </div>
+</div>
+
 <script>
     function runTwemoji() {
         if (typeof twemoji !== 'undefined') {
@@ -267,38 +324,45 @@
         runTwemoji();
     }
 
-    function updateText(lang) {
-        const texts = {
-            sv: {
-                grips: "PREMIUM BADMINTON GRIPS",
-                city: "DESIGNED IN STOCKHOLM",
-                waitlistTitle: "Gå med i väntelistan",
-                emailPlaceholder: "Ange din e-post",
-                buttonText: "GÅ MED",
-                feat1Title: "SVETTÅLIG", feat1Sub: "Avancerad yta som håller dig fokuserad.",
-                feat2Title: "LÅNGVARIG", feat2Sub: "Slitstarka material som behåller greppet.",
-                feat3Title: "MAX KONTROLL", feat3Sub: "Perfekt tjocklek för precisionsslag.",
-                feat4Title: "ELITPRESTANDA", feat4Sub: "Testad och byggd för tävlingsspel.",
-                editionTitle: "STOCKHOLM EDITION",
-                editionText: "Skapad för elitprestanda, designad för stil.",
-                launchDate: "LANSERING SOMMAREN 2026."
-            },
-            en: {
-                grips: "PREMIUM BADMINTON GRIPS",
-                city: "DESIGNED IN STOCKHOLM",
-                waitlistTitle: "Join the waitlist",
-                emailPlaceholder: "Enter your email",
-                buttonText: "JOIN THE CLUB",
-                feat1Title: "SWEAT RESISTANT", feat1Sub: "Advanced surface keeps you locked in.",
-                feat2Title: "LONG LASTING", feat2Sub: "Durable materials that maintain grip.",
-                feat3Title: "MAX CONTROL", feat3Sub: "Perfect thickness for precision shots.",
-                feat4Title: "ELITE PERFORMANCE", feat4Sub: "Tested and built for competitive play.",
-                editionTitle: "STOCKHOLM EDITION",
-                editionText: "Crafted for elite performance, designed for style.",
-                launchDate: "LAUNCHING SUMMER 2026."
-            }
-        };
+    // Texter för både svenska och engelska
+    const texts = {
+        sv: {
+            grips: "PREMIUM BADMINTON GRIPS",
+            city: "DESIGNED IN STOCKHOLM",
+            waitlistTitle: "Gå med i väntelistan",
+            emailPlaceholder: "Ange din e-post",
+            buttonText: "GÅ MED",
+            feat1Title: "SVETTÅLIG", feat1Sub: "Avancerad yta som håller dig fokuserad.",
+            feat2Title: "LÅNGVARIG", feat2Sub: "Slitstarka material som behåller greppet.",
+            feat3Title: "MAX KONTROLL", feat3Sub: "Perfekt tjocklek för precisionsslag.",
+            feat4Title: "ELITPRESTANDA", feat4Sub: "Testad och byggd för tävlingsspel.",
+            editionTitle: "STOCKHOLM EDITION",
+            editionText: "Skapad för elitprestanda, designad för stil.",
+            launchDate: "LANSERING SOMMAREN 2026.",
+            tyTitle: "Tack för din anmälan!",
+            tyText: "Du har lagts till i väntelistan för Stockholm Edition. Vi hör av oss så snart vi lanserar.",
+            tyBtn: "Tillbaka"
+        },
+        en: {
+            grips: "PREMIUM BADMINTON GRIPS",
+            city: "DESIGNED IN STOCKHOLM",
+            waitlistTitle: "Join the waitlist",
+            emailPlaceholder: "Enter your email",
+            buttonText: "JOIN THE CLUB",
+            feat1Title: "SWEAT RESISTANT", feat1Sub: "Advanced surface keeps you locked in.",
+            feat2Title: "LONG LASTING", feat2Sub: "Durable materials that maintain grip.",
+            feat3Title: "MAX CONTROL", feat3Sub: "Perfect thickness for precision shots.",
+            feat4Title: "ELITE PERFORMANCE", feat4Sub: "Tested and built for competitive play.",
+            editionTitle: "STOCKHOLM EDITION",
+            editionText: "Crafted for elite performance, designed for style.",
+            launchDate: "LAUNCHING SUMMER 2026.",
+            tyTitle: "Thank you for signing up!",
+            tyText: "You have been added to the Stockholm Edition waitlist. We will reach out as soon as we launch.",
+            tyBtn: "Back"
+        }
+    };
 
+    function updateText(lang) {
         const t = texts[lang];
         document.getElementById('taglineGrips').innerText = t.grips;
         document.getElementById('taglineCity').innerText = t.city;
@@ -315,6 +379,54 @@
         document.getElementById('feat4Sub').innerText = t.feat4Sub;
         document.getElementById('editionTitle').innerText = t.editionTitle;
         document.getElementById('editionText').innerHTML = t.editionText + `<br><br><strong id="launchDate">${t.launchDate}</strong>`;
+        
+        // Uppdatera texterna på tack-skärmen också baserat på valt språk
+        document.getElementById('thankYouTitle').innerText = t.tyTitle;
+        document.getElementById('thankYouText').innerText = t.tyText;
+        document.getElementById('backBtn').innerText = t.tyBtn;
+    }
+
+    // HANTERA INSICKNING AV FORMULÄR UTAN ATT LÄMNA SIDAN
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Stoppar Formspree från att ladda om till sin egna tacksida
+        
+        const form = this;
+        const data = new FormData(form);
+        const button = document.getElementById('buttonText');
+        
+        // Visar att något händer i knappen
+        button.innerText = currentLang === 'sv' ? "SKICKAR..." : "SENDING...";
+        button.disabled = true;
+
+        // Skickar till ditt Formspree-ID i bakgrunden
+        fetch('https://formspree.io/f/xqenzone', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Visa den snygga helsvarta tack-skärmen
+                document.getElementById('thankYouOverlay').style.display = 'flex';
+                form.reset(); // Tömmer mejlfältet
+            } else {
+                alert('Oj, något gick fel. Försök igen!');
+            }
+        })
+        .catch(error => {
+            alert('Nätverksfel, kontrollera din internetanslutning.');
+        })
+        .finally(() => {
+            // Återställ knappen i bakgrunden
+            button.innerText = texts[currentLang].buttonText;
+            button.disabled = false;
+            runTwemoji();
+        });
+    });
+
+    // STÄNG TACK-SKÄRMEN
+    function closeThankYou() {
+        document.getElementById('thankYouOverlay').style.display = 'none';
     }
 </script>
 
